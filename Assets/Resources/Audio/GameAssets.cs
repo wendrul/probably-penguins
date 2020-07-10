@@ -16,5 +16,5 @@ public class GameAssets : MonoBehaviour
         }
     }
 
-    public AudioClip sfx_Succes;
+   // public AudioClip sfx_Succes;
 }

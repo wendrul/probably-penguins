@@ -20,6 +20,6 @@ public class Settings : MonoBehaviour
 
     public void ActivateSound()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.sfx_Succes);
+      //  AudioManager.Instance.PlaySFX(GameAssets.i.sfx_Succes);
     }
 }
