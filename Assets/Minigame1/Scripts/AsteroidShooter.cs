@@ -11,7 +11,7 @@ public class AsteroidShooter : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Robot").transform;
-        InvokeRepeating("ShootAsteroid", 2.0f, 1f);
+        InvokeRepeating("ShootAsteroid", 2.0f, 4f);
     }
 
     // Update is called once per frame

@@ -22,12 +22,15 @@ public class Asteroid : MonoBehaviour
         if (hitInfo.name == "Ship")
         {
             hitInfo.SendMessage("SpawnFires", gameObject.transform);
+            Destroy(gameObject);
+
         }
         else if(hitInfo.name == "Robot")
         {
-            hitInfo.SendMessage("DetractPoints", gameObject.transform);
+            hitInfo.SendMessage("DetractPoints", 5);
+            Destroy(gameObject);
+
 
         }
-        Destroy(gameObject);
     }
 }

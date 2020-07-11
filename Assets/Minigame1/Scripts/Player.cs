@@ -37,16 +37,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    void AddPoints()
+    public void AddPoints()
     {
         points += 10;
         text.text = points.ToString();
 
     }
 
-    void DetractPoints()
+    public void DetractPoints(int p)
     {
-        points -= 5;
+        points -= p;
         text.text = points.ToString();
     }
 }
