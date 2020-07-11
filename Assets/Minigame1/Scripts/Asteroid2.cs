@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,6 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo.name);
         if (hitInfo.name == "Ship")
         {
             hitInfo.SendMessage("SpawnFires", gameObject.transform);

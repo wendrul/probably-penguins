@@ -9,9 +9,9 @@ public class RopeBridge : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private List<RopeSegment> ropeSegments = new List<RopeSegment>();
-    private float ropeSegLen = 0.40f;
+    private float ropeSegLen = 0.14f;
     private int segmentLength = 35;
-    private float lineWidth = 0.10f;
+    private float lineWidth = 0.035f;
 
     // Use this for initialization
     void Start()

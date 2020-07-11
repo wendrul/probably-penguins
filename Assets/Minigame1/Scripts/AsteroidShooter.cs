@@ -23,7 +23,7 @@ public class AsteroidShooter : MonoBehaviour
     private void ShootAsteroid()
     {
         int i = Random.Range(0, 4);
-        Debug.Log(i);
+
         GameObject asteroid =  Instantiate(asteroidPrefab, firePoints[i].transform.position, firePoints[i].transform.rotation);
         Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
         rb.velocity = (player.position - asteroid.transform.position).normalized * 7f;
