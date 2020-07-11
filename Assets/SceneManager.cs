@@ -12,14 +12,9 @@ public class SceneManager : MonoBehaviour
 
     void Update()
     {
-
-
         // ENABLE OF SETTINGS
         if (Input.GetKeyDown("escape"))
         {
-            
-            Debug.Log("hi");
-
             if (settingsActive == false && ispressed == false)
             {
                 settings.SetActive(true);
@@ -35,12 +30,10 @@ public class SceneManager : MonoBehaviour
                     ispressed = true;
             }
         }
-
         if (Input.GetKeyUp("escape"))
         {
             ispressed = false;
         }
-
         //
     }
 }
