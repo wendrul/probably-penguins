@@ -20,6 +20,7 @@ public class AsteroidLauncher : MonoBehaviour
     [SerializeField] private Transform topLeft;
     [SerializeField] private float shieldSize;
     [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private Animator mouseAnimator;
 
     void Start()
     {
@@ -28,9 +29,11 @@ public class AsteroidLauncher : MonoBehaviour
         asteroids = new List<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Loop()
     {
+        LoopAsteroids();
+
         bool normalAsteroid = true;
         timeSinceLastAsteroid += Time.deltaTime;
         if (normalAsteroid)
@@ -49,6 +52,14 @@ public class AsteroidLauncher : MonoBehaviour
         CheckAsteroidCollision();
     }
 
+    private void LoopAsteroids()
+    {
+        foreach (GameObject asteroid in asteroids)
+        {
+            asteroid.GetComponent<Asteroid>().Loop();
+        }
+    }
+
     private void CheckAsteroidCollision()
     {
         for (int i = asteroids.Count - 1; i >= 0; i--)
@@ -62,18 +73,20 @@ public class AsteroidLauncher : MonoBehaviour
 
     private void Hit(GameObject asteroid)
     {
+        float destructDelay = 0.4f;
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         float shieldDistance = (mousePos - asteroid.transform.position).magnitude;
         if (shieldDistance > shieldSize)
         {
             TakeDamage();
-            DestroyAsteroidFail(asteroid);
+            DestroyAsteroidFail(asteroid, destructDelay);
         }
         else
         {
             TallyScore();
-            DestroyAsteroidSuccess(asteroid);
+            DestroyAsteroidSuccess(asteroid, 0f);
         }
     }
 
@@ -81,18 +94,18 @@ public class AsteroidLauncher : MonoBehaviour
     {
     }
 
-    private void DestroyAsteroidSuccess(GameObject asteroid)
+    private void DestroyAsteroidSuccess(GameObject asteroid, float destructDelay)
     {
-        //play anim
-        Destroy(asteroid);
+        mouseAnimator.SetTrigger("shield");
+        Destroy(asteroid, destructDelay);
         asteroids.Remove(asteroid);
     }
 
-    private void DestroyAsteroidFail(GameObject asteroid)
+    private void DestroyAsteroidFail(GameObject asteroid, float destructDelay)
     {
-        //play anim
+        asteroid.GetComponent<Asteroid>().Anim.SetBool("crash", true);
         StartCoroutine(cameraShake.Shake(.15f, .4f));
-        Destroy(asteroid);
+        Destroy(asteroid, destructDelay);
         asteroids.Remove(asteroid);
     }
 

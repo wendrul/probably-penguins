@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 305db1ba25184694f9d1513dace70500
+guid: c7551bab53ec14a4596fb0044feaaf5c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8895248091185885383
-    second: Asteroid_GreenMoveFrames_0
+      213: -3054486724144675300
+    second: Asteroid_PurpleOnClickFrames_0
   - first:
-      213: 6749237860829816118
-    second: Asteroid_GreenMoveFrames_1
+      213: 5749546495988122063
+    second: Asteroid_PurpleOnClickFrames_1
   - first:
-      213: -3132210922353769676
-    second: Asteroid_GreenMoveFrames_2
+      213: -5700883060422079852
+    second: Asteroid_PurpleOnClickFrames_2
   - first:
-      213: -7974463723068318976
-    second: Asteroid_GreenMoveFrames_3
+      213: 8920472803216188282
+    second: Asteroid_PurpleOnClickFrames_3
+  - first:
+      213: 1967217804300765617
+    second: Asteroid_PurpleOnClickFrames_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asteroid_GreenMoveFrames_0
+      name: Asteroid_PurpleOnClickFrames_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,14 +116,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c03b188205427b70800000000000000
-      internalID: 8895248091185885383
+      spriteID: c16c53cf1884c95d0800000000000000
+      internalID: -3054486724144675300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asteroid_GreenMoveFrames_1
+      name: Asteroid_PurpleOnClickFrames_1
       rect:
         serializedVersion: 2
         x: 235
@@ -134,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 635e06f431c1aad50800000000000000
-      internalID: 6749237860829816118
+      spriteID: fc1c6f0631e7acf40800000000000000
+      internalID: 5749546495988122063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asteroid_GreenMoveFrames_2
+      name: Asteroid_PurpleOnClickFrames_2
       rect:
         serializedVersion: 2
         x: 470
@@ -155,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4334183e2c62884d0800000000000000
-      internalID: -3132210922353769676
+      spriteID: 49a0085af0562e0b0800000000000000
+      internalID: -5700883060422079852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Asteroid_GreenMoveFrames_3
+      name: Asteroid_PurpleOnClickFrames_3
       rect:
         serializedVersion: 2
         x: 705
@@ -176,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00b16409e73055190800000000000000
-      internalID: -7974463723068318976
+      spriteID: a73eb3870c2ebcb70800000000000000
+      internalID: 8920472803216188282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_PurpleOnClickFrames_4
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 0
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9cb259b26fc4b10800000000000000
+      internalID: 1967217804300765617
       vertices: []
       indices: 
       edges: []
