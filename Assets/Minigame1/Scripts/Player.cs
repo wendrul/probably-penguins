@@ -9,12 +9,15 @@ public class Player : MonoBehaviour
     public float speed;
     private int points;
     private Rigidbody2D rb2d;
+    private Vector2 storeVelocity;
+    private float storeAngularVel;
+
     public  TextMeshProUGUI text;
     public GameObject tetherPoint;
     private Transform tetherPosition;
     [SerializeField] private  float distanceFromShip;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         tetherPosition = tetherPoint.GetComponent<Transform>();
         points = 0;
@@ -31,12 +34,12 @@ public class Player : MonoBehaviour
             Vector2 movement = new Vector2(moveHorizontal, moveVertical);
             rb2d.AddForce(movement * speed);
             if (Input.GetKeyDown("e"))
-              {
-                    rb2d.AddTorque(-6.0f);
+            {
+                rb2d.AddTorque(-10.0f);
             }
             if (Input.GetKeyDown("q"))
             {
-                rb2d.AddTorque(6.0f);
+                rb2d.AddTorque(10.0f);
             }
             if (Vector3.Distance(this.gameObject.transform.position, tetherPosition.position) > distanceFromShip)
             {
@@ -63,5 +66,16 @@ public class Player : MonoBehaviour
     {
         points -= p;
         text.text = points.ToString();
+    }
+
+    public void StoreMomentum()
+    {
+        storeVelocity = rb2d.velocity;
+        storeAngularVel = rb2d.angularVelocity;
+    }
+    public void LoadMomentum()
+    {
+        rb2d.velocity = storeVelocity;
+        rb2d.angularVelocity = storeAngularVel;
     }
 }

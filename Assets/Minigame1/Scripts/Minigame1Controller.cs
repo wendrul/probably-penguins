@@ -5,6 +5,7 @@ using UnityEngine;
 public class Minigame1Controller : MonoBehaviour
 {
     private bool playing;
+    [SerializeField] private Player player;
 
     void Start()
     {
@@ -22,10 +23,12 @@ public class Minigame1Controller : MonoBehaviour
     public void Pause()
     {
         GameState.isPlaying = false;
+        player.StoreMomentum();
     }
 
     public void Resume()
     {
         GameState.isPlaying = true;
+        player.LoadMomentum();
     }
 }

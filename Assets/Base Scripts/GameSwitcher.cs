@@ -35,10 +35,14 @@ public class GameSwitcher : MonoBehaviour
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
         AudioManager.Instance.SetMusicVolume(0.01f);
+
+       
+        //temporal:
         if (CurrentMinigame == 0)
                 SwitchToMinigame(1);
             else
                 SwitchToMinigame(0);
+
     }
 
     // Update is called once per frame
@@ -48,6 +52,8 @@ public class GameSwitcher : MonoBehaviour
         if (elapsed > roundTime)
         {
             elapsed = 0f;
+
+            //temporal: 
             if (CurrentMinigame == 0)
                 SwitchToMinigame(1);
             else
@@ -58,8 +64,10 @@ public class GameSwitcher : MonoBehaviour
 
     private void SwitchToMinigame (int n)
     {
-        //penguins[n].SetTrigger("jump");
-        //penguins[CurrentMinigame].SetTrigger("rest");
+        penguins[CurrentMinigame].ResetTrigger("jump");
+        penguins[CurrentMinigame].SetTrigger("rest");
+        penguins[n].ResetTrigger("rest");
+        penguins[n].SetTrigger("jump");
         switch (n)
         {
             case 0:
