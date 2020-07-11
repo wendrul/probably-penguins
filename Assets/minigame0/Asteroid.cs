@@ -12,6 +12,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float startingScale;
     [SerializeField] private float endingScale;
+    [SerializeField] private float maxRotationSpeed;
 
     private float rotateSpeed;
 
@@ -19,7 +20,7 @@ public class Asteroid : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         distanceFromShip = startingDistanceFromShip;
-        rotateSpeed = RandomGaussian(0f, 200f);
+        rotateSpeed = RandomGaussian(-maxRotationSpeed, maxRotationSpeed);
         transform.localScale = startingScale * new Vector3(1, 1, 1);
         Vector3 zCorrection = transform.position;
         zCorrection.z = distanceFromShip;
@@ -38,7 +39,7 @@ public class Asteroid : MonoBehaviour
         transform.Rotate(rotateSpeed * Time.deltaTime * new Vector3(0,0,1));
     }
     
-    public static float RandomGaussian(float minValue = 0.0f, float maxValue = 1.0f)
+    private static float RandomGaussian(float minValue = 0.0f, float maxValue = 1.0f)
     {
         float u, v, S;
 

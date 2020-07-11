@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4035542784893720155}
   - component: {fileID: 4035542784893720157}
   - component: {fileID: 4035542784893720156}
+  - component: {fileID: 960843350706105686}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -71,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 548267f3edc44be47942b8c737142a79, type: 3}
+  m_Sprite: {fileID: 8895248091185885383, guid: 305db1ba25184694f9d1513dace70500,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,6 +97,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDistanceFromShip: 1000
-  speed: 300
-  startingScale: 0.1
-  endingScale: 0.8
+  speed: 500
+  startingScale: 0.2
+  endingScale: 1
+  maxRotationSpeed: 200
+--- !u!95 &960843350706105686
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035542784893720154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b367864ad7bc91f47806443d2561523d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
