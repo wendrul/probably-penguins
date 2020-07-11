@@ -19,6 +19,7 @@ public class AsteroidLauncher : MonoBehaviour
     [SerializeField] private Transform bottomRight;
     [SerializeField] private Transform topLeft;
     [SerializeField] private float shieldSize;
+    [SerializeField] private CameraShake cameraShake;
 
     void Start()
     {
@@ -63,8 +64,8 @@ public class AsteroidLauncher : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        float shieldDistance =  - asteroid.transform.position.magnitude;
-        
+        float shieldDistance = (mousePos - asteroid.transform.position).magnitude;
+        print(shieldDistance);
         if (shieldDistance > shieldSize)
         {
             TakeDamage();
@@ -84,6 +85,7 @@ public class AsteroidLauncher : MonoBehaviour
     private void DestroyAsteroidSuccess(GameObject asteroid)
     {
         //play anim
+        print("Blocked!");
         Destroy(asteroid);
         asteroids.Remove(asteroid);
     }
@@ -91,6 +93,8 @@ public class AsteroidLauncher : MonoBehaviour
     private void DestroyAsteroidFail(GameObject asteroid)
     {
         //play anim
+        StartCoroutine(cameraShake.Shake(.15f, .4f));
+        print("fail");
         Destroy(asteroid);
         asteroids.Remove(asteroid);
     }
