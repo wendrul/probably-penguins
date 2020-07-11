@@ -13,7 +13,11 @@ public class Asteroid2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (!GameState.isPlaying)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)

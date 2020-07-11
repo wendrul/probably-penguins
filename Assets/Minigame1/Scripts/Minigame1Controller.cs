@@ -21,11 +21,11 @@ public class Minigame1Controller : MonoBehaviour
 
     public void Pause()
     {
-        playing = false;
+        GameState.isPlaying = false;
     }
 
     public void Resume()
     {
-        playing = true;
+        GameState.isPlaying = true;
     }
 }

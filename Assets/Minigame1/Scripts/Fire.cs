@@ -9,6 +9,7 @@ public class Fire : MonoBehaviour
     private Player player;
     private bool isFixing;
     private Collider2D playerCollider;
+
     private float e;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,10 @@ public class Fire : MonoBehaviour
             e += Time.deltaTime;
             FixFire();
 
+        }
+        if (!GameState.isPlaying)
+        {
+            Destroy(gameObject);
         }
     }
 

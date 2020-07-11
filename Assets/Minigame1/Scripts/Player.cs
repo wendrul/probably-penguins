@@ -24,23 +24,31 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        rb2d.AddForce(movement * speed);
-        if (Input.GetKeyDown("e"))
+        if (GameState.isPlaying)
         {
-            rb2d.AddTorque(-6.0f);
-        }
-        if (Input.GetKeyDown("q"))
-        {
-            rb2d.AddTorque(6.0f);
-        }
-        if (Vector3.Distance(this.gameObject.transform.position, tetherPosition.position) > distanceFromShip)
-        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            rb2d.AddForce(movement * speed);
+            if (Input.GetKeyDown("e"))
+              {
+                    rb2d.AddTorque(-6.0f);
+            }
+            if (Input.GetKeyDown("q"))
+            {
+                rb2d.AddTorque(6.0f);
+            }
+            if (Vector3.Distance(this.gameObject.transform.position, tetherPosition.position) > distanceFromShip)
+            {
 
-            rb2d.velocity = (tetherPosition.position - this.gameObject.transform.position).normalized * 8f;
+                rb2d.velocity = (tetherPosition.position - this.gameObject.transform.position).normalized * 2f;
 
+            }
+        }
+        else
+        {
+            rb2d.velocity = Vector2.zero; 
+            rb2d.angularVelocity = 0f;
         }
     }
 
