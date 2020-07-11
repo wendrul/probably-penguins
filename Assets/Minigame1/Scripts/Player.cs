@@ -29,6 +29,14 @@ public class Player : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb2d.AddForce(movement * speed);
         Debug.Log(Vector3.Distance(this.gameObject.transform.position, tetherPosition.position));
+        if (Input.GetKeyDown("e"))
+        {
+            rb2d.AddTorque(-6.0f);
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            rb2d.AddTorque(6.0f);
+        }
         if (Vector3.Distance(this.gameObject.transform.position, tetherPosition.position) > distanceFromShip)
         {
 

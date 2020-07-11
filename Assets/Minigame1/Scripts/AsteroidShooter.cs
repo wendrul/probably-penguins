@@ -11,7 +11,7 @@ public class AsteroidShooter : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Robot").transform;
-        InvokeRepeating("ShootAsteroid", 2.0f, 4f);
+        InvokeRepeating("ShootAsteroid", 1.5f, 2.0f);
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class AsteroidShooter : MonoBehaviour
         Debug.Log(i);
         GameObject asteroid =  Instantiate(asteroidPrefab, firePoints[i].transform.position, firePoints[i].transform.rotation);
         Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
-        rb.velocity = (player.position - asteroid.transform.position).normalized * 10f;
+        rb.velocity = (player.position - asteroid.transform.position).normalized * 7f;
 
     }
 

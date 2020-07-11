@@ -26,16 +26,13 @@ public class Fire : MonoBehaviour
         t += Time.deltaTime;
         if (t > 6)
         {
-            player.DetractPoints(10);
+            player.DetractPoints(5);
             Destroy(gameObject);
         }
         if (isFixing)
         {
             e += Time.deltaTime;
-            if (e > 0.5)
-            {
-                FixFire();
-            }
+            FixFire();
 
         }
     }

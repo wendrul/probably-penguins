@@ -27,7 +27,7 @@ public class Asteroid : MonoBehaviour
         }
         else if(hitInfo.name == "Robot")
         {
-            hitInfo.SendMessage("DetractPoints", 5);
+            hitInfo.SendMessage("DetractPoints", 15);
             Destroy(gameObject);
 
 
