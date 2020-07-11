@@ -30,7 +30,7 @@ public class GameSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentMinigame = 0;
+        CurrentMinigame = 1;
         elapsed = 0f;
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
@@ -97,8 +97,10 @@ public class GameSwitcher : MonoBehaviour
         switch (CurrentMinigame)
         {
             case 0:
+                minigame0.Pause();
                 break;
             case 1:
+                minigame1.Pause();
                 break;
             case 2:
                 break;
