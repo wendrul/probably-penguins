@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   donPinguiver: {fileID: 8300000, guid: 28517e3027a684e51966ece72e3e1f07, type: 3}
+  smerelo: {fileID: 8300000, guid: 50193363b4a330744b913779a9e9e867, type: 3}

@@ -18,4 +18,5 @@ public class GameAssets : MonoBehaviour
 
     // public AudioClip sfx_Succes;
     public AudioClip donPinguiver;
+    public AudioClip smerelo;
 }

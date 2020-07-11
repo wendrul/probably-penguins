@@ -65,6 +65,7 @@ public class GameSwitcher : MonoBehaviour
             case 0:
                 PauseCurrentGame();
                 CurrentMinigame = 0;
+                AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
                 //play game 0...
@@ -72,6 +73,7 @@ public class GameSwitcher : MonoBehaviour
             case 1:
                 PauseCurrentGame();
                 CurrentMinigame = 1;
+                AudioManager.Instance.PlayMusic(GameAssets.i.smerelo);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
                 break;
