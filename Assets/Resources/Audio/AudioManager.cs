@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
+
     public static AudioManager Instance
     {
         get
@@ -25,6 +27,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    AudioMixer audioMixer;
+
+    AudioMixerGroup[] audioMixGroup;
+
     private AudioSource musicSource;
     private AudioSource musicSource2;
     private AudioSource sfxSource;
@@ -32,24 +38,30 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+       audioMixer = Resources.Load<AudioMixer>("Master");
 
         DontDestroyOnLoad(this.gameObject);
-
         musicSource = this.gameObject.AddComponent<AudioSource>();
         musicSource2 = this.gameObject.AddComponent<AudioSource>();
         sfxSource = this.gameObject.AddComponent<AudioSource>();
 
+        audioMixGroup = audioMixer.FindMatchingGroups("Master");
+
+        musicSource.outputAudioMixerGroup = audioMixGroup[2];
+        musicSource2.outputAudioMixerGroup = audioMixGroup[2];
+        sfxSource.outputAudioMixerGroup = audioMixGroup[1];
 
         //loop music
         musicSource.loop = true;
         musicSource2.loop = true;
+
     }
 
     public void PlayMusic(AudioClip musicClip)
     {
-
+    
         AudioSource activeSource = (firstMusicSourceIsPlaying) ? musicSource : musicSource2;
-
+        
         activeSource.clip = musicClip;
         activeSource.Play();
     }

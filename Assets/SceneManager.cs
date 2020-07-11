@@ -10,11 +10,18 @@ public class SceneManager : MonoBehaviour
     private bool settingsActive = false;
     private bool ispressed;
 
+
+    public void Start()
+    {    
+        AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+    }
     void Update()
     {
-        // ENABLE OF SETTINGS
+
+       // ENABLE OF SETTINGS
         if (Input.GetKeyDown("escape"))
         {
+            AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx);
             if (settingsActive == false && ispressed == false)
             {
                 settings.SetActive(true);
