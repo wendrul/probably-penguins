@@ -146,7 +146,7 @@ public class GameSwitcher : MonoBehaviour
                 }
                 minigame2.Resume();
                 // saving last minigame to handle better transition sounds
-                cameraHolder.position = cameraPositions[3].position;
+                cameraHolder.position = cameraPositions[2].position;
                 lastMiniGame = CurrentMinigame;
                 break;
             case 3:
