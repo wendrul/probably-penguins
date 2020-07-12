@@ -101,7 +101,7 @@ public class GameSwitcher : MonoBehaviour
         seriousCounter++;
         prevGame = activeGame;
         while (prevGame == activeGame)
-            activeGame = Random.Range(0, 3);
+            activeGame = Random.Range(1, 3);
         if (seriousCounter >= seriousMax)
         {
             activeGame = 3;

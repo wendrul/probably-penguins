@@ -23,6 +23,8 @@ public class AsteroidLauncher : MonoBehaviour
     [SerializeField] private Animator mouseAnimator;
     [SerializeField] private float asteroidDamage;
     [SerializeField] private float healthRegenPerSec;
+    [SerializeField] private Transform mouse;
+
 
     void Start()
     {
@@ -86,9 +88,9 @@ public class AsteroidLauncher : MonoBehaviour
     {
         float destructDelay = 0.4f;
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        float shieldDistance = (mousePos - asteroid.transform.position).magnitude;
+        Vector3 diff = mouse.position - asteroid.transform.position;
+        diff.z = 0;
+        float shieldDistance = diff.magnitude;
         if (shieldDistance > shieldSize)
         {
             TakeDamage();

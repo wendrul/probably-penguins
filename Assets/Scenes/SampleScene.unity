@@ -11197,15 +11197,13 @@ MonoBehaviour:
   roundTime: 3
   roundTimeMin:
   - 3
-  - 5
-  - 5
-  - 5
+  - 7
+  - 8
   roundTimeMax:
   - 15
   - 20
-  - 20
-  - 20
-  maximumDifficulty: 0
+  - 18
+  maximumDifficulty: 30
   seriousMax: 5
 --- !u!4 &324674504
 Transform:
@@ -15154,11 +15152,11 @@ MonoBehaviour:
     type: 3}
   bottomRight: {fileID: 1992109542}
   topLeft: {fileID: 848269780}
-  shieldSize: 3
+  shieldSize: 30
   cameraShake: {fileID: 519420030}
   mouseAnimator: {fileID: 256348823}
-  asteroidDamage: 0
-  healthRegenPerSec: 0
+  asteroidDamage: 8
+  healthRegenPerSec: 3
 --- !u!114 &427644731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17744,7 +17742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -31738,6 +31736,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8855081023094420342, guid: d3e8b07ade0514853984a3fe222c6740,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8855081023108263899, guid: d3e8b07ade0514853984a3fe222c6740,
         type: 3}
       propertyPath: m_Camera
@@ -31773,6 +31776,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8855081023991592779, guid: d3e8b07ade0514853984a3fe222c6740,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8855081024003910230, guid: d3e8b07ade0514853984a3fe222c6740,
         type: 3}
       propertyPath: m_Camera
@@ -57809,8 +57817,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467585293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -140.50003, y: 262.3, z: 20.6}
-  m_LocalScale: {x: 1.5283309, y: 1.5283309, z: 0.74190825}
+  m_LocalPosition: {x: -61.000027, y: 111.49999, z: 21.7}
+  m_LocalScale: {x: 0.7293286, y: 0.7293286, z: 0.354043}
   m_Children:
   - {fileID: 202180485}
   - {fileID: 1362470148}
@@ -63983,7 +63991,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614533740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 24.4}
+  m_LocalPosition: {x: 0, y: 0, z: 23.3}
   m_LocalScale: {x: 2.3753486, y: 2.3753486, z: 2.3753486}
   m_Children: []
   m_Father: {fileID: 489245673}
@@ -63991,8 +63999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 188}
-  m_SizeDelta: {x: 589.0752, y: 330.8911}
+  m_AnchoredPosition: {x: 4, y: 76}
+  m_SizeDelta: {x: 281.11023, y: 157.9032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614533742
 MonoBehaviour:
