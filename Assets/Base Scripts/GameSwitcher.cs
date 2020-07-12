@@ -8,6 +8,7 @@ public class GameSwitcher : MonoBehaviour
     public int CurrentMinigame { get; set; }
     private float elapsed;
     private float currentMinigameDuration;
+    private int lastMiniGame;
 
     [SerializeField] private Transform cameraHolder;
     [SerializeField] private Transform[] cameraPositions;
@@ -108,33 +109,53 @@ public class GameSwitcher : MonoBehaviour
                 PauseCurrentGame();
                 CurrentMinigame = 0;
                 //sfx transition
-                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
                 //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 1:
                 PauseCurrentGame();
                 CurrentMinigame = 1;
                 //sfx transition
-                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
-                //
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.smerelo, secondGameTimestamp % 59);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 2:
                 PauseCurrentGame();
                 CurrentMinigame = 2;
+                //sfx transition
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
+                // saving last minigame to handle better transition sounds
+                lastMiniGame = CurrentMinigame;
                 break;
             case 3:
                 PauseCurrentGame();
                 CurrentMinigame = 3;
                 //sfx transition
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.VisualNovelMusic, thirdGameTimestamp % 53);
                 minigame3.Resume();
                 cameraHolder.position = cameraPositions[3].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 4:
                 PauseCurrentGame();
