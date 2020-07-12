@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
+    private int i = 0;
 
     public static AudioManager Instance
     {
@@ -62,6 +64,16 @@ public class AudioManager : MonoBehaviour
         AudioSource activeSource = (firstMusicSourceIsPlaying) ? musicSource : musicSource2;
         
         activeSource.clip = musicClip;
+        activeSource.Play();
+    }
+
+    public void PlayMusicAtTime(AudioClip musicClip, float timestamp) 
+    {
+        AudioSource activeSource = musicSource;//(firstMusicSourceIsPlaying) ? musicSource : musicSource2;
+
+        activeSource.clip = musicClip;
+
+        activeSource.timeSamples = (int)(timestamp * musicClip.frequency);
         activeSource.Play();
     }
 

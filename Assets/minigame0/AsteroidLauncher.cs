@@ -21,6 +21,7 @@ public class AsteroidLauncher : MonoBehaviour
     [SerializeField] private float shieldSize;
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private Animator mouseAnimator;
+    [SerializeField] private float asteroidDamage;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class AsteroidLauncher : MonoBehaviour
     public void Loop()
     {
         LoopAsteroids();
-
+        HealthRegen();
         bool normalAsteroid = true;
         timeSinceLastAsteroid += Time.deltaTime;
         if (normalAsteroid)
@@ -50,6 +51,11 @@ public class AsteroidLauncher : MonoBehaviour
             }
         }
         CheckAsteroidCollision();
+
+    }
+
+    private void HealthRegen()
+    {
     }
 
     private void LoopAsteroids()
@@ -111,5 +117,6 @@ public class AsteroidLauncher : MonoBehaviour
 
     private void TakeDamage()
     {
+        Health.Instance.RemainingHealth -= asteroidDamage;
     }
 }
