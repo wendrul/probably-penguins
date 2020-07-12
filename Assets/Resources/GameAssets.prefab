@@ -57,3 +57,6 @@ MonoBehaviour:
   SpaceCrashSFX: {fileID: 8300000, guid: 176fef6909de74b04b58057392158dae, type: 3}
   UFOEngineSFX: {fileID: 8300000, guid: 81e6463191ac84cb8a37b1f86e2d8724, type: 3}
   BlowtorchSFX: {fileID: 8300000, guid: 7949192b1605a4051863fb2acfce757e, type: 3}
+  SnapBouz: {fileID: 8300000, guid: 18140fe9d1838694aa88a32811a0fa25, type: 3}
+  TakePiecesfx: {fileID: 8300000, guid: 650d5acafd877614bb70a37f723879d5, type: 3}
+  LevelComplete: {fileID: 8300000, guid: 6b0f0252fbdbf20418f517f62c418582, type: 3}
