@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class GameSwitcher : MonoBehaviour
@@ -96,7 +97,7 @@ public class GameSwitcher : MonoBehaviour
             seriousCounter = 0;
         }
         if (Health.Instance.Difficulty < maximumDifficulty)
-        Health.Instance.Difficulty++;
+            Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
         penguins[CurrentMinigame].SetTrigger("rest");
         penguins[activeGame].ResetTrigger("rest");
