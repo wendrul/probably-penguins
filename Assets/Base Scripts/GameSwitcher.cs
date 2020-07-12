@@ -19,10 +19,12 @@ public class GameSwitcher : MonoBehaviour
     [Space]
     [SerializeField] private DefenderMinigameController minigame0;
     [SerializeField] private Minigame1Controller minigame1;
+    [SerializeField] private Book minigame3;
     [Space]
     [SerializeField] private float roundTime;
     [SerializeField] private float[] roundTimeMin;
     [SerializeField] private float[] roundTimeMax;
+    private bool paused;
 
     //private in Minigame1Controller minigame1;
     //...
@@ -32,6 +34,7 @@ public class GameSwitcher : MonoBehaviour
     {
         CurrentMinigame = 1;
         elapsed = 0f;
+        paused = false;
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
         AudioManager.Instance.SetMusicVolume(0.01f);
@@ -48,16 +51,33 @@ public class GameSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        elapsed += Time.deltaTime;
-        if (elapsed > roundTime)
+        if (!paused)
         {
-            elapsed = 0f;
+            elapsed += Time.deltaTime;
+            if (elapsed > roundTime)
+            {
+                elapsed = 0f;
 
-            //temporal: 
-            if (CurrentMinigame == 0)
-                SwitchToMinigame(1);
-            else
-                SwitchToMinigame(0);
+                //temporal: 
+                switch (CurrentMinigame)
+                {
+                    case 0:
+                        SwitchToMinigame(1);
+                        break;
+                    case 1:
+                        SwitchToMinigame(3);
+                        break;
+                    case 3:
+                        SwitchToMinigame(0);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (CurrentMinigame == 3 && minigame3.PageWasPlayed)
+            {
+                SwitchToMinigame(0); //SHOULD NOT BE 0
+            }
         }
 
     }
@@ -76,7 +96,6 @@ public class GameSwitcher : MonoBehaviour
                 AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
-                //play game 0...
                 break;
             case 1:
                 PauseCurrentGame();
@@ -92,8 +111,11 @@ public class GameSwitcher : MonoBehaviour
             case 3:
                 PauseCurrentGame();
                 CurrentMinigame = 3;
+                AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+                minigame3.Resume();
+                cameraHolder.position = cameraPositions[3].position;
                 break;
-            case 5:
+            case 4:
                 PauseCurrentGame();
                 CurrentMinigame = 4;
                 break;
@@ -111,6 +133,36 @@ public class GameSwitcher : MonoBehaviour
                 break;
             case 1:
                 minigame1.Pause();
+                break;
+            case 2:
+                break;
+            case 3:
+                minigame3.PageWasPlayed = false;
+                minigame3.Pause();
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void Pause()
+    {
+        paused = true;
+        PauseCurrentGame();
+    }
+
+    public void Resume()
+    {
+        paused = false;
+        switch (CurrentMinigame)
+        {
+            case 0:
+                minigame0.Resume();
+                break;
+            case 1:
+                minigame1.Resume();
                 break;
             case 2:
                 break;

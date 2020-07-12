@@ -7,6 +7,7 @@ public class Book : MonoBehaviour
 {
     int i;
     private GameObject[] page;
+    public bool PageWasPlayed { get; set; }
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class Book : MonoBehaviour
         {
             page[i] = transform.GetChild(i).gameObject;
         }
+        Pause();
     }
 
     public void NextPage()
@@ -43,6 +45,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 1;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
 
     public void CryingInBed()
@@ -51,6 +54,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 2;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
 
     public void Hospital()
@@ -59,6 +63,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 3;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
 
     public void GranfatherFlashback()
@@ -67,6 +72,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 4;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
 
     public void DreamingHappy()
@@ -75,6 +81,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 5;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
 
     public void AloneInTheDark()
@@ -83,6 +90,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 6;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void FishGiantFish()
     {
@@ -90,6 +98,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 7;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void LookGiantFish()
     {
@@ -97,6 +106,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 8;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void SpeedDating()
     {
@@ -104,6 +114,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 9;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void Cliff()
     {
@@ -111,6 +122,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 10;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void PingHell()
     {
@@ -118,6 +130,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 11;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void TenOutTen()
     {
@@ -125,6 +138,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 12;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void FatherAgain()
     {
@@ -132,6 +146,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 13;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
     }
     public void LoveNeverComesAlone()
     {
@@ -139,5 +154,16 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(false);
         i = 14;
         page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
+    }
+
+    public void Pause()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        gameObject.SetActive(true);
     }
 }
