@@ -180,6 +180,6 @@ public class GameSwitcher : MonoBehaviour
     public void GameOver()
     {
         Pause();
-        cameraHolder.position = cameraPositions[5].position;
+        cameraHolder.position = cameraPositions[4].position;
     }
 }

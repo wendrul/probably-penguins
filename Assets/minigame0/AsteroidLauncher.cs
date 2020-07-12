@@ -34,7 +34,7 @@ public class AsteroidLauncher : MonoBehaviour
     public void Loop()
     {
         LoopAsteroids();
-
+        HealthRegen();
         bool normalAsteroid = true;
         timeSinceLastAsteroid += Time.deltaTime;
         if (normalAsteroid)
@@ -51,6 +51,11 @@ public class AsteroidLauncher : MonoBehaviour
             }
         }
         CheckAsteroidCollision();
+
+    }
+
+    private void HealthRegen()
+    {
     }
 
     private void LoopAsteroids()

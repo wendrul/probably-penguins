@@ -44,6 +44,5 @@ public class SceneManager : MonoBehaviour
         {
             ispressed = false;
         }
-        //
     }
 }
