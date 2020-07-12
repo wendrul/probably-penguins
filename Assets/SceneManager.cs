@@ -13,7 +13,7 @@ public class SceneManager : MonoBehaviour
 
     public void Start()
     {    
-        AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+       // AudioManager.Instance.PlayMusic(GameAssets.i.Music);
     }
     void Update()
     {
