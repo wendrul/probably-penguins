@@ -24,21 +24,21 @@ public class Fire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime;
-        if (t > 6)
+        if (GameState.isPlaying)
         {
-            player.DetractPoints(5);
-            Destroy(gameObject);
-        }
-        if (isFixing)
-        {
-            e += Time.deltaTime;
-            FixFire();
+            t += Time.deltaTime;
+            if (t > 6)
+            {
+                player.DetractPoints(5);
+                Destroy(gameObject);
+            }
+            if (isFixing)
+            {
+                e += Time.deltaTime;
+                FixFire();
 
-        }
-        if (!GameState.isPlaying)
-        {
-            Destroy(gameObject);
+            }
+
         }
     }
 

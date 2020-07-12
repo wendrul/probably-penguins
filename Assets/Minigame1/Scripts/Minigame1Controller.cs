@@ -6,6 +6,8 @@ public class Minigame1Controller : MonoBehaviour
 {
     private bool playing;
     [SerializeField] private Player player;
+    [SerializeField] private AsteroidShooter asteroidShooter;
+    
 
     void Start()
     {
@@ -23,12 +25,14 @@ public class Minigame1Controller : MonoBehaviour
     public void Pause()
     {
         GameState.isPlaying = false;
+        asteroidShooter.StopShooting();
         player.StoreMomentum();
     }
 
     public void Resume()
     {
         GameState.isPlaying = true;
+        asteroidShooter.StartShooting();
         player.LoadMomentum();
     }
 }
