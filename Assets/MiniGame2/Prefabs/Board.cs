@@ -5,6 +5,7 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public GameObject everything;
+    public GameObject canvasObject;
     public int puzzleDone = 0;
     private int i;
 
@@ -20,13 +21,17 @@ public class Board : MonoBehaviour
     public int[,] tab8 = new int[,] { { 1, 0, 1, 1, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 0 } };
 
     public int[,] tab9 = new int[,]  { { 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 } };
-public int[,] tab10 = new int[,] { { 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0, 0 } };
+    public int[,] tab10 = new int[,] { { 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0, 0 } };
 
+    void Start() 
+    {
+        //Pause();
+    }
 
     public bool PlacePiece(Piece piece, int x, int y)
     {
-        print(x);
-        print(y);
+        if (x < 0 || y < 0 || x >= tab.GetLength(0) || y >= tab.GetLength(1))
+            return (false);
         if (tab[x, y] == 0)
         {
             i = -1;
@@ -145,55 +150,57 @@ public int[,] tab10 = new int[,] { { 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 1, 0, 0 }, {
         puzzleDone++;
         if (puzzleDone == 1)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab1;
         }
         if (puzzleDone == 2)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab2;
         }
         if (puzzleDone == 3)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab3;
         }
         if (puzzleDone == 4)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab4;
         }
         if (puzzleDone == 5)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab5;
         }
         if (puzzleDone == 6)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab6;
         }
         if (puzzleDone == 7)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab7;
         }
         if (puzzleDone == 8)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab8;
         }
         if (puzzleDone == 9)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab9;
         }
         if (puzzleDone == 10)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab10;
         }
+        everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 1.528331f, 0);
 
         return (true);
     }
+
+    public void Pause()
+    {
+        canvasObject.GetComponent<Canvas>().enabled = false;
+    }
+
+    public void Resume()
+    {
+        canvasObject.GetComponent<Canvas>().enabled = true;
+    }
+
 }
