@@ -17,7 +17,6 @@ public class AsteroidShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InvokeRepeating("ShootAsteroid", 0.4f, 1.3f);
     }
 
 
@@ -27,7 +26,7 @@ public class AsteroidShooter : MonoBehaviour
     }
     public void StartShooting()
     {
-
+        InvokeRepeating("ShootAsteroid", 0.4f, 1.3f);
     }
 
     private void ShootAsteroid()

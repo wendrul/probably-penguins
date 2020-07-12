@@ -50,14 +50,22 @@ public class Asteroid2 : MonoBehaviour
     {
         if (hitInfo.name == "Ship")
         {
+
+            rb2d.velocity = Vector2.zero;
+            rb2d.angularVelocity = 0f;
+            animator.SetBool("crash", true);
+
             hitInfo.SendMessage("SpawnFires", gameObject.transform);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
 
         }
         else if(hitInfo.name == "Robot")
         {
+            animator.SetBool("crash", true);
+            rb2d.velocity = Vector2.zero;
+            rb2d.angularVelocity = 0f;
             hitInfo.SendMessage("DetractPoints", 15);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
 
 
         }

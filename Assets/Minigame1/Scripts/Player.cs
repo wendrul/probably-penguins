@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2d;
     private Vector2 storeVelocity;
     private float storeAngularVel;
-
+    private Animator animator;
     public  TextMeshProUGUI text;
     public GameObject tetherPoint;
     private Transform tetherPosition;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        animator = GetComponent<Animator>();
         tetherPosition = tetherPoint.GetComponent<Transform>();
         points = 0;
         text.text = points.ToString();
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
 
     public void AddPoints()
     {
+        animator.SetTrigger("IsFix");
         points += 10;
         text.text = points.ToString();
 
@@ -64,6 +66,10 @@ public class Player : MonoBehaviour
 
     public void DetractPoints(int p)
     {
+        if (p == 15)
+        {
+            animator.SetTrigger("Ishit");
+        }
         points -= p;
         text.text = points.ToString();
     }
