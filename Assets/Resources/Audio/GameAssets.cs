@@ -12,7 +12,6 @@ public class GameAssets : MonoBehaviour
         {
             if (_i == null) _i = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
             return _i;
-
         }
     }
 
