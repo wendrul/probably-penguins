@@ -50,3 +50,6 @@ MonoBehaviour:
   DesertBleu: {fileID: 8300000, guid: d718b23b1502342d5a258e631d0c8958, type: 3}
   donPinguiver: {fileID: 8300000, guid: 28517e3027a684e51966ece72e3e1f07, type: 3}
   smerelo: {fileID: 8300000, guid: 50193363b4a330744b913779a9e9e867, type: 3}
+  approachingAsteroid: {fileID: 8300000, guid: 357daa256571e104389457c1fd186031, type: 3}
+  shipHitAsteroid: {fileID: 8300000, guid: 03a0e499684cacb4d8ee0f189f85d55c, type: 3}
+  shieldBlockAsteroid: {fileID: 8300000, guid: 34ea64b66f9bb4f40b7a5fea465c7395, type: 3}

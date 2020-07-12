@@ -552,6 +552,7 @@ MonoBehaviour:
   cameraShake: {fileID: 519420030}
   mouseAnimator: {fileID: 256348823}
   asteroidDamage: 0
+  soundVolume: 0.1
 --- !u!114 &427644731
 MonoBehaviour:
   m_ObjectHideFlags: 0
