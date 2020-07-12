@@ -51,3 +51,6 @@ MonoBehaviour:
   donPinguiver: {fileID: 8300000, guid: 28517e3027a684e51966ece72e3e1f07, type: 3}
   smerelo: {fileID: 8300000, guid: 50193363b4a330744b913779a9e9e867, type: 3}
   VisualNovelMusic: {fileID: 8300000, guid: 0b1ea7146b4334e7a939abdb490503ce, type: 3}
+  SpaceCrashSFX: {fileID: 8300000, guid: 176fef6909de74b04b58057392158dae, type: 3}
+  UFOEngineSFX: {fileID: 8300000, guid: 81e6463191ac84cb8a37b1f86e2d8724, type: 3}
+  BlowtorchSFX: {fileID: 8300000, guid: 7949192b1605a4051863fb2acfce757e, type: 3}

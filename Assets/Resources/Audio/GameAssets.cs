@@ -28,4 +28,11 @@ public class GameAssets : MonoBehaviour
     public AudioClip donPinguiver;
     public AudioClip smerelo;
     public AudioClip VisualNovelMusic;
+
+
+    // MiniGame Smerelo
+
+    public AudioClip SpaceCrashSFX;
+    public AudioClip UFOEngineSFX;
+    public AudioClip BlowtorchSFX;
 }

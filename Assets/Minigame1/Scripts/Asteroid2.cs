@@ -31,16 +31,16 @@ public class Asteroid2 : MonoBehaviour
     {
         if (hitInfo.name == "Ship")
         {
+            AudioManager.Instance.PlaySFX(GameAssets.i.SpaceCrashSFX);
             hitInfo.SendMessage("SpawnFires", gameObject.transform);
             Destroy(gameObject);
 
         }
         else if(hitInfo.name == "Robot")
         {
+            AudioManager.Instance.PlaySFX(GameAssets.i.SpaceCrashSFX);
             hitInfo.SendMessage("DetractPoints", 15);
             Destroy(gameObject);
-
-
         }
     }
 }
