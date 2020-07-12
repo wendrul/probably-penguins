@@ -20,16 +20,14 @@ public class GameSwitcher : MonoBehaviour
     [SerializeField] private DefenderMinigameController minigame0;
     [SerializeField] private Minigame1Controller minigame1;
     [SerializeField] private Book minigame3;
+    [Header("Minigame Settings")]
     [Space]
     [SerializeField] private float roundTime;
     [SerializeField] private float[] roundTimeMin;
     [SerializeField] private float[] roundTimeMax;
+    [SerializeField] private int maximumDifficulty;
     private bool paused;
 
-    //private in Minigame1Controller minigame1;
-    //...
-
-    // Start is called before the first frame update
     void Start()
     {
         CurrentMinigame = 1;
@@ -54,7 +52,7 @@ public class GameSwitcher : MonoBehaviour
         if (!paused)
         {
             elapsed += Time.deltaTime;
-            if (elapsed > roundTime)
+            if (CurrentMinigame != 3 && elapsed > roundTime)
             {
                 elapsed = 0f;
 
@@ -84,6 +82,8 @@ public class GameSwitcher : MonoBehaviour
 
     private void SwitchToMinigame (int n)
     {
+        if (Health.Instance.Difficulty < maximumDifficulty)
+        Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
         penguins[CurrentMinigame].SetTrigger("rest");
         penguins[n].ResetTrigger("rest");
@@ -150,7 +150,8 @@ public class GameSwitcher : MonoBehaviour
     public void Pause()
     {
         paused = true;
-        PauseCurrentGame();
+        if (CurrentMinigame != 3)
+            PauseCurrentGame();
     }
 
     public void Resume()
@@ -167,11 +168,18 @@ public class GameSwitcher : MonoBehaviour
             case 2:
                 break;
             case 3:
+                minigame3.Resume();
                 break;
             case 5:
                 break;
             default:
                 break;
         }
+    }
+
+    public void GameOver()
+    {
+        Pause();
+        cameraHolder.position = cameraPositions[4].position;
     }
 }
