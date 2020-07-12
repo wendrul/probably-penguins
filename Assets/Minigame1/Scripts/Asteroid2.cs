@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Asteroid2 : MonoBehaviour
 {
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        if (Random.Range(1, 3) == 1)
+        {
+            animator.SetBool("purple", true);
+        }
+
     }
 
     // Update is called once per frame
