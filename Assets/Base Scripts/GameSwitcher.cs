@@ -88,6 +88,7 @@ public class GameSwitcher : MonoBehaviour
             if (CurrentMinigame == 3 && minigame3.PageWasPlayed)
             {
                 SwitchToMinigame(0); //SHOULD NOT BE 0
+                elapsed = 0;
             }
         }
 
