@@ -6,6 +6,7 @@ public class SceneManager : MonoBehaviour
 {
 
     public GameObject settings;
+    [SerializeField] private GameSwitcher switcher;
 
     private bool settingsActive = false;
     private bool ispressed;
@@ -24,6 +25,7 @@ public class SceneManager : MonoBehaviour
         {
             if (settingsActive == false && ispressed == false)
             {
+                switcher.Pause();
                 settings.SetActive(true);
                 settingsActive = true;
                     ispressed = true;
@@ -31,6 +33,7 @@ public class SceneManager : MonoBehaviour
 
             if (settingsActive == true && ispressed == false)
             {
+                switcher.Resume();
                 Debug.Log("hir");
                 settings.SetActive(false);
                 settingsActive = false;

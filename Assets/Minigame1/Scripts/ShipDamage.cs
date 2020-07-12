@@ -19,7 +19,7 @@ public class ShipDamage : MonoBehaviour
 
     void SpawnFires(Transform position)
     {
-        GameObject Fire = Instantiate(firePrefab, position.position, position.rotation);
-
+        GameObject Fire = Instantiate(firePrefab, position.position, Quaternion.identity);
+  
     }
 }
