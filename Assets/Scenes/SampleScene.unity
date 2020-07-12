@@ -389,7 +389,7 @@ MonoBehaviour:
   - {fileID: 1520400241}
   minigame0: {fileID: 427644731}
   minigame1: {fileID: 661766690}
-  roundTime: 15
+  roundTime: 3
   roundTimeMin:
   - 3
   - 5
@@ -1133,7 +1133,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c5288637287a841ab8fbe2eff5abfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 507466352}
 --- !u!1 &837680205
 GameObject:
   m_ObjectHideFlags: 0
