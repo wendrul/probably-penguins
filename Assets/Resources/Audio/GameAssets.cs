@@ -36,4 +36,9 @@ public class GameAssets : MonoBehaviour
     public AudioClip SpaceCrashSFX;
     public AudioClip UFOEngineSFX;
     public AudioClip BlowtorchSFX;
+
+    public AudioClip SnapBouz;
+    public AudioClip TakePiecesfx;
+    public AudioClip LevelComplete;
+
 }

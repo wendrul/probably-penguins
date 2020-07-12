@@ -27,6 +27,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        AudioManager.Instance.PlaySFX(GameAssets.i.TakePiecesfx, 0.15f);
         //   Debug.Log("OnBeginDrag");
         Piece piece = eventData.pointerDrag.GetComponent<Piece>();
         if (eventData.pointerDrag != null)
@@ -44,7 +45,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     }
     public void OnDrag(PointerEventData eventData)
     {
-   //     Debug.Log("OnDrag");
+        //     Debug.Log("OnDrag");
+       
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor / 1.528331f;
     }
     public void OnEndDrag(PointerEventData eventData)
