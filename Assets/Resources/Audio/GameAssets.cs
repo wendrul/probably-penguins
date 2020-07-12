@@ -30,4 +30,6 @@ public class GameAssets : MonoBehaviour
     public AudioClip approachingAsteroid;
     public AudioClip shipHitAsteroid;
     public AudioClip shieldBlockAsteroid;
+    public AudioClip VisualNovelMusic;
+
 }
