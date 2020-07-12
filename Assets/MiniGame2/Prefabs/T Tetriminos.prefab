@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.07058821, g: 0.77254903, b: 0.14706828, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b5ccd50dd217dd749b66cceefea73f3c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  board: {fileID: 0}
+  tetriminos: {fileID: 0}
 --- !u!225 &2566246645358971623
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -117,6 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapePath: raw
   isPlaced: 0
+  x: 0
+  y: 0
 --- !u!114 &5662086436596490145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fab19669fb9034fa09ea39eda1c091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  everything: {fileID: 0}
+  puzzleDone: 0

@@ -6,19 +6,22 @@ public class Board : MonoBehaviour
 {
     public GameObject everything;
     public int puzzleDone = 0;
+    private int i;
 
     public int[,] tab = new int[,] { { 1, 0, 0, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0, 0, 1 } };
     public int[,] tab1 = new int[,] { { 1, 0, 1, 0 }, { 0, 0, 0, 0 }, { 0, 0, 1, 0 }, { 1, 0, 0, 0 } };
-    public int[,] tab2 = new int[,] { { 1, 1, 0, 0, 0 }, { 1, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0 }, {0, 0, 0, 0, 1 }  };
-    public int[,] tab3 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab4 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab5 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab6 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab7 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab8 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab9 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    public int[,] tab10 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
-    private int i;
+    public int[,] tab2 = new int[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+    public int[,] tab3 = new int[,] { { 0, 0, 0, 1 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 1, 1, 0, 1 } };
+
+    public int[,] tab4 = new int[,] { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0 } };
+    public int[,] tab5 = new int[,] { { 0, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 1, 1, 0, 0 }, { 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0 } };
+    public int[,] tab6 = new int[,] { { 1, 1, 0, 0, 0 }, { 1, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1 } };
+    public int[,] tab7 = new int[,] { { 1, 0, 1, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1, 0, 0, 0, 0 } };
+    public int[,] tab8 = new int[,] { { 1, 0, 1, 1, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 0 } };
+
+    public int[,] tab9 = new int[,]  { { 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 } };
+public int[,] tab10 = new int[,] { { 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 1, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0 }, { 0, 0, 1, 0, 0, 0 } };
+
 
     public bool PlacePiece(Piece piece, int x, int y)
     {
@@ -142,52 +145,52 @@ public class Board : MonoBehaviour
         puzzleDone++;
         if (puzzleDone == 1)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab1;
         }
         if (puzzleDone == 2)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab2;
         }
         if (puzzleDone == 3)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab3;
         }
         if (puzzleDone == 4)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab4;
         }
         if (puzzleDone == 5)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab5;
         }
         if (puzzleDone == 6)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab6;
         }
         if (puzzleDone == 7)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab7;
         }
         if (puzzleDone == 8)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab8;
         }
         if (puzzleDone == 9)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab9;
         }
         if (puzzleDone == 10)
         {
-            everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+            everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 2.06f, 0);
             tab = tab10;
         }
 
