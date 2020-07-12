@@ -33,8 +33,15 @@ public class GameSwitcher : MonoBehaviour
     private float thirdGameTimestamp = 0;
     private float fourthGameTimestamp = 0;
 
+    private int prevGame;
+    private int activeGame;
+    private int seriousCounter = 0;
+
+    public int seriousMax;
+
     void Start()
     {
+        activeGame = 0;
         CurrentMinigame = 1;
         elapsed = 0f;
         paused = false;
@@ -44,10 +51,8 @@ public class GameSwitcher : MonoBehaviour
 
        
         //temporal:
-        if (CurrentMinigame == 0)
-                SwitchToMinigame(1);
-            else
-                SwitchToMinigame(0);
+        SwitchToMinigame();
+            
 
     }
 
@@ -68,40 +73,34 @@ public class GameSwitcher : MonoBehaviour
             if (CurrentMinigame != 3 && elapsed > roundTime)
             {
                 elapsed = 0f;
-
-                //temporal: 
-                switch (CurrentMinigame)
-                {
-                    case 0:
-                        SwitchToMinigame(1);
-                        break;
-                    case 1:
-                        SwitchToMinigame(3);
-                        break;
-                    case 3:
-                        SwitchToMinigame(0);
-                        break;
-                    default:
-                        break;
-                }
+                SwitchToMinigame();
             }
             if (CurrentMinigame == 3 && minigame3.PageWasPlayed)
             {
-                SwitchToMinigame(0); //SHOULD NOT BE 0
+                SwitchToMinigame(); //SHOULD NOT BE 0
             }
         }
 
     }
 
-    private void SwitchToMinigame (int n)
+    private void SwitchToMinigame ()
     {
+        seriousCounter++;
+        prevGame = activeGame;
+        while (prevGame == activeGame)
+            activeGame = Random.Range(0, 2);
+        if (seriousCounter >= seriousMax)
+        {
+            activeGame = 3;
+            seriousCounter = 0;
+        }
         if (Health.Instance.Difficulty < maximumDifficulty)
         Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
         penguins[CurrentMinigame].SetTrigger("rest");
-        penguins[n].ResetTrigger("rest");
-        penguins[n].SetTrigger("jump");
-        switch (n)
+        penguins[activeGame].ResetTrigger("rest");
+        penguins[activeGame].SetTrigger("jump");
+        switch (activeGame)
         {
             case 0:
                 PauseCurrentGame();
