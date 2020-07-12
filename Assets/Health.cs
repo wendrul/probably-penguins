@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float RemainingHealth { get; set; }
+    public float MaximumHealth { get; private set; }
     public int Difficulty { get; set; }
     private GameSwitcher switcher;
 
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     void Awake()
     {
         RemainingHealth = maxHealth;
+        MaximumHealth = maxHealth;
         Difficulty = 0;
         Instance = this;
     }

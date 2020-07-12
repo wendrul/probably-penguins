@@ -50,7 +50,14 @@ MonoBehaviour:
   DesertBleu: {fileID: 8300000, guid: d718b23b1502342d5a258e631d0c8958, type: 3}
   donPinguiver: {fileID: 8300000, guid: 28517e3027a684e51966ece72e3e1f07, type: 3}
   smerelo: {fileID: 8300000, guid: 50193363b4a330744b913779a9e9e867, type: 3}
+  approachingAsteroid: {fileID: 8300000, guid: 357daa256571e104389457c1fd186031, type: 3}
+  shipHitAsteroid: {fileID: 8300000, guid: 03a0e499684cacb4d8ee0f189f85d55c, type: 3}
+  shieldBlockAsteroid: {fileID: 8300000, guid: 34ea64b66f9bb4f40b7a5fea465c7395, type: 3}
   VisualNovelMusic: {fileID: 8300000, guid: 0b1ea7146b4334e7a939abdb490503ce, type: 3}
   SpaceCrashSFX: {fileID: 8300000, guid: 176fef6909de74b04b58057392158dae, type: 3}
   UFOEngineSFX: {fileID: 8300000, guid: 81e6463191ac84cb8a37b1f86e2d8724, type: 3}
   BlowtorchSFX: {fileID: 8300000, guid: 7949192b1605a4051863fb2acfce757e, type: 3}
+  SnapBouz: {fileID: 8300000, guid: 18140fe9d1838694aa88a32811a0fa25, type: 3}
+  TakePiecesfx: {fileID: 8300000, guid: 650d5acafd877614bb70a37f723879d5, type: 3}
+  LevelComplete: {fileID: 8300000, guid: 6b0f0252fbdbf20418f517f62c418582, type: 3}
+  PuzzleMusic: {fileID: 8300000, guid: 3262bb2c011d80841971e0391a6735ed, type: 3}

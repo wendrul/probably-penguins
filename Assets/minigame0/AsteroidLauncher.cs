@@ -22,6 +22,7 @@ public class AsteroidLauncher : MonoBehaviour
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private Animator mouseAnimator;
     [SerializeField] private float asteroidDamage;
+    [SerializeField] private float healthRegenPerSec;
 
     void Start()
     {
@@ -56,6 +57,10 @@ public class AsteroidLauncher : MonoBehaviour
 
     private void HealthRegen()
     {
+        if (Health.Instance.RemainingHealth < Health.Instance.MaximumHealth)
+            Health.Instance.RemainingHealth += Time.deltaTime * healthRegenPerSec;
+        if (Health.Instance.RemainingHealth > Health.Instance.MaximumHealth)
+            Health.Instance.RemainingHealth = Health.Instance.MaximumHealth;
     }
 
     private void LoopAsteroids()
@@ -87,11 +92,13 @@ public class AsteroidLauncher : MonoBehaviour
         if (shieldDistance > shieldSize)
         {
             TakeDamage();
+            AudioManager.Instance.PlaySFX(GameAssets.i.shipHitAsteroid, 0.08f);
             DestroyAsteroidFail(asteroid, destructDelay);
         }
         else
         {
             TallyScore();
+            AudioManager.Instance.PlaySFX(GameAssets.i.shieldBlockAsteroid, 0.2f);
             DestroyAsteroidSuccess(asteroid, 0f);
         }
     }

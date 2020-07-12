@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class GameSwitcher : MonoBehaviour
@@ -20,6 +21,7 @@ public class GameSwitcher : MonoBehaviour
     [Space]
     [SerializeField] private DefenderMinigameController minigame0;
     [SerializeField] private Minigame1Controller minigame1;
+    [SerializeField] private Board minigame2;
     [SerializeField] private Book minigame3;
     [Header("Minigame Settings")]
     [Space]
@@ -34,21 +36,27 @@ public class GameSwitcher : MonoBehaviour
     private float thirdGameTimestamp = 0;
     private float fourthGameTimestamp = 0;
 
+    private int prevGame;
+    private int activeGame;
+    private int seriousCounter = 0;
+
+    public int seriousMax;
+
     void Start()
     {
+        activeGame = 0;
         CurrentMinigame = 1;
         elapsed = 0f;
         paused = false;
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
         AudioManager.Instance.SetMusicVolume(0.01f);
+        minigame2.Pause();
 
        
         //temporal:
-        if (CurrentMinigame == 0)
-                SwitchToMinigame(1);
-            else
-                SwitchToMinigame(0);
+        SwitchToMinigame();
+            
 
     }
 
@@ -69,41 +77,37 @@ public class GameSwitcher : MonoBehaviour
             if (CurrentMinigame != 3 && elapsed > roundTime)
             {
                 elapsed = 0f;
-
-                //temporal: 
-                switch (CurrentMinigame)
-                {
-                    case 0:
-                        SwitchToMinigame(1);
-                        break;
-                    case 1:
-                        SwitchToMinigame(3);
-                        break;
-                    case 3:
-                        SwitchToMinigame(0);
-                        break;
-                    default:
-                        break;
-                }
+                SwitchToMinigame();
             }
             if (CurrentMinigame == 3 && minigame3.PageWasPlayed)
             {
-                SwitchToMinigame(0); //SHOULD NOT BE 0
+                SwitchToMinigame();
                 elapsed = 0;
             }
         }
 
     }
 
-    private void SwitchToMinigame (int n)
+    private void SwitchToMinigame ()
     {
+        seriousCounter++;
+        prevGame = activeGame;
+        while (prevGame == activeGame)
+            activeGame = Random.Range(0, 3);
+        if (seriousCounter >= seriousMax)
+        {
+            activeGame = 3;
+            seriousCounter = 0;
+        }
+        else
+            roundTime = Random.Range(roundTimeMin[activeGame], roundTimeMax[activeGame]);
         if (Health.Instance.Difficulty < maximumDifficulty)
-        Health.Instance.Difficulty++;
+            Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
         penguins[CurrentMinigame].SetTrigger("rest");
-        penguins[n].ResetTrigger("rest");
-        penguins[n].SetTrigger("jump");
-        switch (n)
+        penguins[activeGame].ResetTrigger("rest");
+        penguins[activeGame].SetTrigger("jump");
+        switch (activeGame)
         {
             case 0:
                 PauseCurrentGame();
@@ -138,11 +142,15 @@ public class GameSwitcher : MonoBehaviour
                 PauseCurrentGame();
                 CurrentMinigame = 2;
                 //sfx transition
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.PuzzleMusic, secondGameTimestamp % 58);
+
                 if (lastMiniGame != 3)
                 {
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
                 }
+                minigame2.Resume();
                 // saving last minigame to handle better transition sounds
+                cameraHolder.position = cameraPositions[2].position;
                 lastMiniGame = CurrentMinigame;
                 break;
             case 3:
@@ -177,6 +185,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Pause();
                 break;
             case 2:
+                minigame2.Pause();
                 break;
             case 3:
                 minigame3.PageWasPlayed = false;
@@ -208,6 +217,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Resume();
                 break;
             case 2:
+                minigame2.Resume();
                 break;
             case 3:
                 minigame3.Resume();
