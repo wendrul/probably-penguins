@@ -9,6 +9,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public int y;
     public GameObject board;
     private Board boardScript;
+   
 
     void Start()
     {
@@ -20,8 +21,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             Piece piece = eventData.pointerDrag.GetComponent<Piece>();
-            if (piece.isPlaced == true)
-                boardScript.placePieceOnBoard(piece, x, y, 0);
             if (boardScript.PlacePiece(piece, x, y))
             {
                 Debug.Log("snaps");
@@ -29,6 +28,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 if (boardScript.Completed())
                 {
                     print("THE END");
+                    
+
                 }
 
             }

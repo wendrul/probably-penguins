@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7670373664545777166}
   - component: {fileID: 7670373664545777393}
   - component: {fileID: 7670373664545777392}
+  - component: {fileID: -8027376932668829172}
   m_Layer: 5
   m_Name: BoardSquare
   m_TagString: Untagged
@@ -90,3 +91,15 @@ MonoBehaviour:
   x: 2
   y: 0
   board: {fileID: 0}
+--- !u!114 &-8027376932668829172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670373664545777394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fab19669fb9034fa09ea39eda1c091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

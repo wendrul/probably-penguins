@@ -5,6 +5,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public string shapePath;
-    public bool isPlaced;
-
+    public bool isPlaced = false;
+    public int x;
+    public int y;
 }

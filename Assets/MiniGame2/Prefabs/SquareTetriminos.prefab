@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5975357151149952819}
   - component: {fileID: 5975357151149952830}
   - component: {fileID: -3551905301238157192}
+  - component: {fileID: 3003545957893616866}
   m_Layer: 5
   m_Name: SquareTetriminos
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapePath: rdl
+  isPlaced: 0
+--- !u!114 &3003545957893616866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975357151149952817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fab19669fb9034fa09ea39eda1c091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

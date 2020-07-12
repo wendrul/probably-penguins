@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-    public int[,] tab = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 1}};
-    public int[,] tab1 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 }};
+    public GameObject everything;
+
+    public int[,] tab = new int[,] { { 1, 0, 0, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 1 }, { 0, 0, 0, 1 } };
+    public int[,] tab1 = new int[,] { { 1, 0, 1, 0 }, { 0, 0, 0, 0 }, { 0, 0, 1, 0 }, { 1, 0, 0, 0 } };
+    public int[,] tab2 = new int[,] { { 0, 0, 23 }, { 0, 0, 1 }, { 1, 1, 1 }, { 0, 0, 21 } };
+    public int[,] tab3 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
+    public int[,] tab4 = new int[,] { { 0, 0, 0, }, { 0, 0, 0 }, { 0, 0, 0 } };
     private int i;
 
-   public bool PlacePiece(Piece piece, int x, int y)
+    public bool PlacePiece(Piece piece, int x, int y)
     {
+        print(x);
+        print(y);
         if (tab[x, y] == 0)
         {
             i = -1;
-           int  a = x; 
-           int  b = y;
+            int a = x;
+            int b = y;
             if (x < 0 || y < 0 || x >= tab.GetLength(0) || y >= tab.GetLength(1))
                 return (false);
             while (++i < 3)
@@ -22,14 +29,22 @@ public class Board : MonoBehaviour
                 if (!CheckPiece(piece.shapePath[i], ref x, ref y))
                     return (false);
             }
-            placePieceOnBoard(piece, a, b, 1);
+             placePieceOnBoard(piece, a, b, 1);
             return (true);
         }
         return (false);
     }
 
-    public void placePieceOnBoard(Piece piece,  int x, int y, int number)
+    public void placePieceOnBoard(Piece piece, int x, int y, int number)
     {
+        if (piece.isPlaced == false)
+        {
+            piece.isPlaced = true;
+            piece.x = x;
+            piece.y = y;
+        }
+        else
+            piece.isPlaced = false;
         tab[x, y] = number;
         i = -1;
         while (++i < 3)
@@ -63,12 +78,7 @@ public class Board : MonoBehaviour
                 y += 1;
             }
             tab[x, y] = number;
-            print(number);
         }
-        if (piece.isPlaced == false)
-            piece.isPlaced = true;
-        else
-            piece.isPlaced = false;
     }
 
     bool CheckPiece(char piece, ref int x, ref int y)
@@ -107,7 +117,7 @@ public class Board : MonoBehaviour
             return (false);
         if (tab[x, y] != 0)
             return (false);
-        return (true);        
+        return (true);
     }
 
 
@@ -119,9 +129,11 @@ public class Board : MonoBehaviour
             for (int j = 0; j < tab.GetLength(1); j++)
             {
                 if (tab[i, j] == 0)
-                   return (false);
+                    return (false);
             }
         }
+        everything.GetComponent<Transform>().position += new Vector3(0, 1000, 0);
+        tab = tab1;
         return (true);
     }
 }

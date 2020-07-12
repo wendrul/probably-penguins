@@ -10,7 +10,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    public GameObject board;
+    private Board boardScript;
+    public GameObject tetriminos;
+    private CanvasGroup tetriminosCg;
 
+    void Start()
+    {
+        boardScript = board.GetComponent<Board>();
+        tetriminosCg = tetriminos.GetComponent<CanvasGroup>();
+    }
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -18,13 +27,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-     //   Debug.Log("OnBeginDrag");
+        //   Debug.Log("OnBeginDrag");
+        Piece piece = eventData.pointerDrag.GetComponent<Piece>();
+        if (eventData.pointerDrag != null)
+        {
+             if (piece.isPlaced == true)
+              boardScript.placePieceOnBoard(piece, piece.x, piece.y, 0);
+        }
+
         Vector2 localPoint = new Vector2(0, 0);
         // RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, Input.mousePosition, camera, out localPoint);
         rectTransform.position = Input.mousePosition;
        // rectTransform.anchoredPosition = localPoint;
         canvasGroup.alpha = .5f;
-        canvasGroup.blocksRaycasts = false;
+        tetriminosCg.blocksRaycasts = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -35,7 +51,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
     //    Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+        tetriminosCg.blocksRaycasts = true;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
