@@ -132,8 +132,6 @@ public class GameSwitcher : MonoBehaviour
                 PauseCurrentGame();
                 CurrentMinigame = 3;
                 //sfx transition
-                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
-                //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.VisualNovelMusic, thirdGameTimestamp % 53);
                 minigame3.Resume();
                 cameraHolder.position = cameraPositions[3].position;
