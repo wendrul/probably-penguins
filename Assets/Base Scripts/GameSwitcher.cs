@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class GameSwitcher : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameSwitcher : MonoBehaviour
     public int CurrentMinigame { get; set; }
     private float elapsed;
     private float currentMinigameDuration;
+    private int lastMiniGame;
 
     [SerializeField] private Transform cameraHolder;
     [SerializeField] private Transform[] cameraPositions;
@@ -19,6 +21,7 @@ public class GameSwitcher : MonoBehaviour
     [Space]
     [SerializeField] private DefenderMinigameController minigame0;
     [SerializeField] private Minigame1Controller minigame1;
+    [SerializeField] private Board minigame2;
     [SerializeField] private Book minigame3;
     [Header("Minigame Settings")]
     [Space]
@@ -33,21 +36,27 @@ public class GameSwitcher : MonoBehaviour
     private float thirdGameTimestamp = 0;
     private float fourthGameTimestamp = 0;
 
+    private int prevGame;
+    private int activeGame;
+    private int seriousCounter = 0;
+
+    public int seriousMax;
+
     void Start()
     {
+        activeGame = 0;
         CurrentMinigame = 1;
         elapsed = 0f;
         paused = false;
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
         AudioManager.Instance.SetMusicVolume(0.01f);
+        minigame2.Pause();
 
        
         //temporal:
-        if (CurrentMinigame == 0)
-                SwitchToMinigame(1);
-            else
-                SwitchToMinigame(0);
+        SwitchToMinigame();
+            
 
     }
 
@@ -68,66 +77,89 @@ public class GameSwitcher : MonoBehaviour
             if (CurrentMinigame != 3 && elapsed > roundTime)
             {
                 elapsed = 0f;
-
-                //temporal: 
-                switch (CurrentMinigame)
-                {
-                    case 0:
-                        SwitchToMinigame(1);
-                        break;
-                    case 1:
-                        SwitchToMinigame(3);
-                        break;
-                    case 3:
-                        SwitchToMinigame(0);
-                        break;
-                    default:
-                        break;
-                }
+                SwitchToMinigame();
             }
             if (CurrentMinigame == 3 && minigame3.PageWasPlayed)
             {
-                SwitchToMinigame(0); //SHOULD NOT BE 0
+                SwitchToMinigame();
                 elapsed = 0;
             }
         }
 
     }
 
-    private void SwitchToMinigame (int n)
+    private void SwitchToMinigame ()
     {
+        seriousCounter++;
+        prevGame = activeGame;
+        while (prevGame == activeGame)
+            activeGame = Random.Range(0, 3);
+        if (seriousCounter >= seriousMax)
+        {
+            activeGame = 3;
+            seriousCounter = 0;
+        }
         if (Health.Instance.Difficulty < maximumDifficulty)
-        Health.Instance.Difficulty++;
+            Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
         penguins[CurrentMinigame].SetTrigger("rest");
-        penguins[n].ResetTrigger("rest");
-        penguins[n].SetTrigger("jump");
-        switch (n)
+        penguins[activeGame].ResetTrigger("rest");
+        penguins[activeGame].SetTrigger("jump");
+        switch (activeGame)
         {
             case 0:
                 PauseCurrentGame();
                 CurrentMinigame = 0;
-                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
+                //sfx transition
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
+                //
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 1:
                 PauseCurrentGame();
                 CurrentMinigame = 1;
+                //sfx transition
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.smerelo, secondGameTimestamp % 59);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 2:
                 PauseCurrentGame();
                 CurrentMinigame = 2;
+                //sfx transition
+                if (lastMiniGame != 3)
+                {
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                }
+                minigame2.Resume();
+                // saving last minigame to handle better transition sounds
+                cameraHolder.position = cameraPositions[2].position;
+                lastMiniGame = CurrentMinigame;
                 break;
             case 3:
                 PauseCurrentGame();
                 CurrentMinigame = 3;
-                AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+                //sfx transition
+                    AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.VisualNovelMusic, thirdGameTimestamp % 53);
                 minigame3.Resume();
                 cameraHolder.position = cameraPositions[3].position;
+                // saving last minigame to handle better transition sounds 
+                lastMiniGame = CurrentMinigame;
                 break;
             case 4:
                 PauseCurrentGame();
@@ -149,6 +181,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Pause();
                 break;
             case 2:
+                minigame2.Pause();
                 break;
             case 3:
                 minigame3.PageWasPlayed = false;
@@ -180,6 +213,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Resume();
                 break;
             case 2:
+                minigame2.Resume();
                 break;
             case 3:
                 minigame3.Resume();

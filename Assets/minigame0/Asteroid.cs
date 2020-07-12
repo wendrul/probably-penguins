@@ -15,11 +15,13 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float startingScale;
     [SerializeField] private float endingScale;
     [SerializeField] private float maxRotationSpeed;
+    [SerializeField] private float appearVolume;
 
     private float rotateSpeed;
 
     void Start()
     {
+        AudioManager.Instance.PlaySFX(GameAssets.i.approachingAsteroid, appearVolume);
         spriteRenderer = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
         ChooseColor();

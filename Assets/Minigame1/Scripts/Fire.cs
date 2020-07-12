@@ -44,6 +44,7 @@ public class Fire : MonoBehaviour
 
     private void FixFire()
     {
+        AudioManager.Instance.PlaySFX(GameAssets.i.BlowtorchSFX);
         playerCollider.SendMessage("AddPoints");
         Destroy(gameObject);
     }
