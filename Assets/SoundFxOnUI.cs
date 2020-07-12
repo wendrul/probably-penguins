@@ -14,7 +14,6 @@ public class SoundFxOnUI : MonoBehaviour, IPointerEnterHandler, IPointerDownHand
 
     public void OnPointerExit(PointerEventData ped)
     {
-        Debug.Log("hi");
         transform.GetChild(0).gameObject.SetActive(false);
     }
     public void OnPointerDown(PointerEventData ped)
