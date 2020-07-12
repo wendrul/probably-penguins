@@ -732,10 +732,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fab19669fb9034fa09ea39eda1c091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  everything: {fileID: 0}
-  canvasObject: {fileID: 0}
-  puzzleDone: 0
---- !u!114 &23072915
+  crashDistance: 0
+  minimumSpawnDelay: 0.3
+  maximumSpawnDelay: 1
+  asteroidPrefab: {fileID: 4035542784893720154, guid: ffdcb4a84b4c0ad41af7b6579c2aeb0f,
+    type: 3}
+  bottomRight: {fileID: 1992109542}
+  topLeft: {fileID: 848269780}
+  shieldSize: 3
+  cameraShake: {fileID: 519420030}
+  mouseAnimator: {fileID: 256348823}
+  asteroidDamage: 0
+  soundVolume: 0.1
+--- !u!114 &427644731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

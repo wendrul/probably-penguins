@@ -101,6 +101,7 @@ MonoBehaviour:
   startingScale: 0.2
   endingScale: 1.5
   maxRotationSpeed: 200
+  appearVolume: 0.1
 --- !u!95 &960843350706105686
 Animator:
   serializedVersion: 3
