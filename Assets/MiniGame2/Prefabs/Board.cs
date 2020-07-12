@@ -25,8 +25,8 @@ public int[,] tab10 = new int[,] { { 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 1, 0, 0 }, {
 
     public bool PlacePiece(Piece piece, int x, int y)
     {
-        print(x);
-        print(y);
+        if (x < 0 || y < 0 || x >= tab.GetLength(0) || y >= tab.GetLength(1))
+            return (false);
         if (tab[x, y] == 0)
         {
             i = -1;

@@ -422,7 +422,7 @@ MonoBehaviour:
   minigame0: {fileID: 427644731}
   minigame1: {fileID: 661766690}
   minigame3: {fileID: 608701183}
-  roundTime: 15
+  roundTime: 3
   roundTimeMin:
   - 3
   - 5
@@ -434,6 +434,7 @@ MonoBehaviour:
   - 20
   - 20
   maximumDifficulty: 0
+  seriousMax: 5
 --- !u!4 &324674504
 Transform:
   m_ObjectHideFlags: 0
