@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     {
         if (GameState.isPlaying)
         {
+            text.text = ((int)Health.Instance.RemainingHealth).ToString();
+
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             Vector2 movement = new Vector2(moveHorizontal, moveVertical);
@@ -60,8 +62,8 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger("IsFix");
         points += 10;
-        text.text = points.ToString();
-
+        if (Health.Instance.RemainingHealth < Health.Instance.MaximumHealth)
+        Health.Instance.RemainingHealth += points / 6;
     }
 
     public void DetractPoints(int p)
@@ -71,7 +73,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Ishit");
         }
         points -= p;
-        text.text = points.ToString();
+        Health.Instance.RemainingHealth -= points / 6;
     }
 
     public void StoreMomentum()

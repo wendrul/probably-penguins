@@ -8,9 +8,12 @@ public class Book : MonoBehaviour
     int i;
     private GameObject[] page;
     public bool PageWasPlayed { get; set; }
+    public bool ShouldEnd { get; set; }
+
 
     private void Start()
     {
+        ShouldEnd = false;
         page = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -82,6 +85,8 @@ public class Book : MonoBehaviour
         i = 5;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
 
     public void AloneInTheDark()
@@ -91,6 +96,8 @@ public class Book : MonoBehaviour
         i = 6;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
     public void FishGiantFish()
     {
@@ -99,6 +106,7 @@ public class Book : MonoBehaviour
         i = 7;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
     }
     public void LookGiantFish()
     {
@@ -107,6 +115,8 @@ public class Book : MonoBehaviour
         i = 8;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
     public void SpeedDating()
     {
@@ -131,6 +141,8 @@ public class Book : MonoBehaviour
         i = 11;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
     public void TenOutTen()
     {
@@ -139,6 +151,8 @@ public class Book : MonoBehaviour
         i = 12;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
     public void FatherAgain()
     {
@@ -147,6 +161,8 @@ public class Book : MonoBehaviour
         i = 13;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
     public void LoveNeverComesAlone()
     {
@@ -155,6 +171,8 @@ public class Book : MonoBehaviour
         i = 14;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
+
     }
 
     public void OnGiantFish()
@@ -164,6 +182,7 @@ public class Book : MonoBehaviour
         i = 15;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+        ShouldEnd = true;
     }
 
     public void Pause()

@@ -84,6 +84,14 @@ public class GameSwitcher : MonoBehaviour
                 SwitchToMinigame();
                 elapsed = 0;
             }
+            if (CurrentMinigame == 2)
+            {
+                Health.Instance.RemainingHealth -= Time.deltaTime * 2;
+            }
+            if (CurrentMinigame == 3 && minigame3.ShouldEnd)
+            {
+                GameOver();
+            }
         }
 
     }
