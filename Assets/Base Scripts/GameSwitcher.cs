@@ -107,13 +107,19 @@ public class GameSwitcher : MonoBehaviour
             case 0:
                 PauseCurrentGame();
                 CurrentMinigame = 0;
-                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
+                //sfx transition
+                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
                 break;
             case 1:
                 PauseCurrentGame();
                 CurrentMinigame = 1;
+                //sfx transition
+                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.smerelo, secondGameTimestamp % 59);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
@@ -125,7 +131,10 @@ public class GameSwitcher : MonoBehaviour
             case 3:
                 PauseCurrentGame();
                 CurrentMinigame = 3;
-                AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+                //sfx transition
+                AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.VisualNovelMusic, thirdGameTimestamp % 53);
                 minigame3.Resume();
                 cameraHolder.position = cameraPositions[3].position;
                 break;
