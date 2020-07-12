@@ -99,6 +99,8 @@ public class GameSwitcher : MonoBehaviour
             activeGame = 3;
             seriousCounter = 0;
         }
+        else
+            roundTime = Random.Range(roundTimeMin[activeGame], roundTimeMax[activeGame]);
         if (Health.Instance.Difficulty < maximumDifficulty)
             Health.Instance.Difficulty++;
         penguins[CurrentMinigame].ResetTrigger("jump");
@@ -140,6 +142,8 @@ public class GameSwitcher : MonoBehaviour
                 PauseCurrentGame();
                 CurrentMinigame = 2;
                 //sfx transition
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.PuzzleMusic, secondGameTimestamp % 58);
+
                 if (lastMiniGame != 3)
                 {
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);

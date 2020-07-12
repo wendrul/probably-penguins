@@ -40,5 +40,6 @@ public class GameAssets : MonoBehaviour
     public AudioClip SnapBouz;
     public AudioClip TakePiecesfx;
     public AudioClip LevelComplete;
+    public AudioClip PuzzleMusic;
 
 }
