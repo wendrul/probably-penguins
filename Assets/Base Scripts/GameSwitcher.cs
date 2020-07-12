@@ -21,6 +21,7 @@ public class GameSwitcher : MonoBehaviour
     [Space]
     [SerializeField] private DefenderMinigameController minigame0;
     [SerializeField] private Minigame1Controller minigame1;
+    [SerializeField] private Board minigame2;
     [SerializeField] private Book minigame3;
     [Header("Minigame Settings")]
     [Space]
@@ -50,6 +51,7 @@ public class GameSwitcher : MonoBehaviour
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
         AudioManager.Instance.SetMusicVolume(0.01f);
+        minigame2.Pause();
 
        
         //temporal:
@@ -142,6 +144,7 @@ public class GameSwitcher : MonoBehaviour
                 {
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
                 }
+                minigame2.Resume();
                 // saving last minigame to handle better transition sounds
                 cameraHolder.position = cameraPositions[3].position;
                 lastMiniGame = CurrentMinigame;
@@ -178,6 +181,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Pause();
                 break;
             case 2:
+                minigame2.Pause();
                 break;
             case 3:
                 minigame3.PageWasPlayed = false;
@@ -209,6 +213,7 @@ public class GameSwitcher : MonoBehaviour
                 minigame1.Resume();
                 break;
             case 2:
+                minigame2.Resume();
                 break;
             case 3:
                 minigame3.Resume();
