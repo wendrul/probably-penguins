@@ -13,13 +13,12 @@ public class SMan : MonoBehaviour
 
     private bool ispressed;
 
-
     public void Start()
     {    
+        AudioManager.Instance.SetMusicVolume(0.35f);
     }
     void Update()
     {
-
        // ENABLE OF SETTINGS
         if (Input.GetKeyDown("escape"))
         {
