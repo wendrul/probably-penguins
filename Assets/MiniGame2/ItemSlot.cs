@@ -24,7 +24,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             if (boardScript.PlacePiece(piece, x, y))
             {
                 Debug.Log("snaps");
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition  + new Vector2(0, boardScript.puzzleDone * -1000);
                 if (boardScript.Completed())
                 {
                     print("THE END");
