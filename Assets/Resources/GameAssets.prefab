@@ -48,3 +48,5 @@ MonoBehaviour:
   AshkanSwooshSfx: {fileID: 8300000, guid: a48b64f4903294333a28f104105526a7, type: 3}
   IranianClick: {fileID: 8300000, guid: a977fcfaf8086480fbacea9732107f37, type: 3}
   DesertBleu: {fileID: 8300000, guid: d718b23b1502342d5a258e631d0c8958, type: 3}
+  donPinguiver: {fileID: 8300000, guid: 28517e3027a684e51966ece72e3e1f07, type: 3}
+  smerelo: {fileID: 8300000, guid: 50193363b4a330744b913779a9e9e867, type: 3}
