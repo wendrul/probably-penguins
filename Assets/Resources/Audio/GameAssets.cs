@@ -27,4 +27,5 @@ public class GameAssets : MonoBehaviour
     public AudioClip DesertBleu;
     public AudioClip donPinguiver;
     public AudioClip smerelo;
+    public AudioClip VisualNovelMusic;
 }

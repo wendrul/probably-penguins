@@ -157,6 +157,15 @@ public class Book : MonoBehaviour
         PageWasPlayed = true;
     }
 
+    public void OnGiantFish()
+    {
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        page[i].gameObject.SetActive(false);
+        i = 15;
+        page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
+    }
+
     public void Pause()
     {
         gameObject.SetActive(false);
