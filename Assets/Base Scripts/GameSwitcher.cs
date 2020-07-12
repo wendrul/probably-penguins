@@ -23,6 +23,10 @@ public class GameSwitcher : MonoBehaviour
     [SerializeField] private float roundTime;
     [SerializeField] private float[] roundTimeMin;
     [SerializeField] private float[] roundTimeMax;
+    private float firstGameTimestamp = 0;
+    private float secondGameTimestamp = 0;
+    private float thirdGameTimestamp = 0;
+    private float fourthGameTimestamp = 0;
 
     //private in Minigame1Controller minigame1;
     //...
@@ -49,6 +53,14 @@ public class GameSwitcher : MonoBehaviour
     void Update()
     {
         elapsed += Time.deltaTime;
+        if (CurrentMinigame == 0)
+            firstGameTimestamp += elapsed;
+        if (CurrentMinigame == 1)
+            secondGameTimestamp += elapsed;
+        if (CurrentMinigame == 2)
+            thirdGameTimestamp += elapsed;
+        if (CurrentMinigame == 4)
+            fourthGameTimestamp += elapsed;
         if (elapsed > roundTime)
         {
             elapsed = 0f;
@@ -73,7 +85,7 @@ public class GameSwitcher : MonoBehaviour
             case 0:
                 PauseCurrentGame();
                 CurrentMinigame = 0;
-                AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
                 //play game 0...
@@ -81,7 +93,7 @@ public class GameSwitcher : MonoBehaviour
             case 1:
                 PauseCurrentGame();
                 CurrentMinigame = 1;
-                AudioManager.Instance.PlayMusic(GameAssets.i.smerelo);
+                AudioManager.Instance.PlayMusicAtTime(GameAssets.i.smerelo, secondGameTimestamp % 59);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
                 break;
