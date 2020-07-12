@@ -18,4 +18,11 @@ public class GameAssets : MonoBehaviour
 
     public AudioClip Music;
     public AudioClip TransitionSfx;
+
+
+
+    // Visual Novel SoundBank
+
+    public AudioClip AshkanSwooshSfx;
+    public AudioClip IranianClick;
 }
