@@ -13,7 +13,8 @@ public class SceneManager : MonoBehaviour
 
     public void Start()
     {    
-       // AudioManager.Instance.PlayMusic(GameAssets.i.Music);
+        AudioManager.Instance.PlayMusic(GameAssets.i.DesertBleu);
+        AudioManager.Instance.SetMusicVolume(0.35f);
     }
     void Update()
     {
@@ -21,7 +22,6 @@ public class SceneManager : MonoBehaviour
        // ENABLE OF SETTINGS
         if (Input.GetKeyDown("escape"))
         {
-            AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx);
             if (settingsActive == false && ispressed == false)
             {
                 settings.SetActive(true);

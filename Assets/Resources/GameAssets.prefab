@@ -47,3 +47,4 @@ MonoBehaviour:
   TransitionSfx: {fileID: 8300000, guid: 62ba4ebb50cd2405e998073c7b27ad0d, type: 3}
   AshkanSwooshSfx: {fileID: 8300000, guid: a48b64f4903294333a28f104105526a7, type: 3}
   IranianClick: {fileID: 8300000, guid: a977fcfaf8086480fbacea9732107f37, type: 3}
+  DesertBleu: {fileID: 8300000, guid: d718b23b1502342d5a258e631d0c8958, type: 3}

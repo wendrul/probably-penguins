@@ -25,4 +25,5 @@ public class GameAssets : MonoBehaviour
 
     public AudioClip AshkanSwooshSfx;
     public AudioClip IranianClick;
+    public AudioClip DesertBleu;
 }
