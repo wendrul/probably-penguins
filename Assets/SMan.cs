@@ -16,7 +16,6 @@ public class SMan : MonoBehaviour
 
     public void Start()
     {    
-        AudioManager.Instance.PlayMusic(GameAssets.i.DesertBleu);
         AudioManager.Instance.SetMusicVolume(0.35f);
     }
     void Update()
