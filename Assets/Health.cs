@@ -35,6 +35,8 @@ public class Health : MonoBehaviour
         {
             GameOver();
         }
+        if (RemainingHealth > MaximumHealth)
+            RemainingHealth = MaximumHealth;
     }
 
     private void GameOver()

@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("IsFix");
         points += 10;
         if (Health.Instance.RemainingHealth < Health.Instance.MaximumHealth)
-            Health.Instance.RemainingHealth += points / 6;
+            Health.Instance.RemainingHealth += 10 / 3;
     }
 
     public void DetractPoints(int p)
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Ishit");
         }
         points -= p;
-        Health.Instance.RemainingHealth -= points / 6;
+        Health.Instance.RemainingHealth -= p / 6;
     }
 
     public void StoreMomentum()

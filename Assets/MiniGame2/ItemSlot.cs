@@ -27,10 +27,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition  + new Vector2(0, boardScript.puzzleDone * -1000);
                 if (boardScript.Completed())
                 {
-                    
-
+                    Health.Instance.RemainingHealth += 12;
                 }
-
             }
 
         }
