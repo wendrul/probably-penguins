@@ -19,6 +19,7 @@ public class Book : MonoBehaviour
         {
             page[i] = transform.GetChild(i).gameObject;
         }
+        i = 15;
         Pause();
     }
 
@@ -180,6 +181,16 @@ public class Book : MonoBehaviour
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
         page[i].gameObject.SetActive(false);
         i = 15;
+        page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
+        ShouldEnd = true;
+    }
+
+    public void TintinAndBinbin()
+    {
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        page[i].gameObject.SetActive(false);
+        i = 0;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
         ShouldEnd = true;
