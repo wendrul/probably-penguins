@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public Slider healthBar;
+   // public Slider healthBar;
     public float RemainingHealth { get; set; }
     public float MaximumHealth { get; private set; }
     public int Difficulty { get; set; }
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        healthBar.value = RemainingHealth;
+     //   healthBar.value = RemainingHealth;
         if (RemainingHealth <= 0)
         {
             GameOver();

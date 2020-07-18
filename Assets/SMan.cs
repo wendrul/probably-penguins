@@ -7,15 +7,14 @@ public class SMan : MonoBehaviour
 {
 
     public GameObject settings;
-    [SerializeField] private GameSwitcher switcher;
 
-    private bool settingsActive = false;
+    private bool settingsActive;
 
     private bool ispressed;
 
     public void Start()
-    {    
-        AudioManager.Instance.SetMusicVolume(0.35f);
+    {
+        
     }
     void Update()
     {
@@ -24,7 +23,7 @@ public class SMan : MonoBehaviour
         {
             if (settingsActive == false && ispressed == false)
             {
-                switcher.Pause();
+                //activate Pause here
                 settings.SetActive(true);
                 settingsActive = true;
                     ispressed = true;
@@ -32,8 +31,7 @@ public class SMan : MonoBehaviour
 
             if (settingsActive == true && ispressed == false)
             {
-                switcher.Resume();
-                Debug.Log("hir");
+                // activate Resume here
                 settings.SetActive(false);
                 settingsActive = false;
                     ispressed = true;

@@ -86,7 +86,6 @@ public class Book : MonoBehaviour
         i = 5;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
 
     }
 
@@ -97,8 +96,6 @@ public class Book : MonoBehaviour
         i = 6;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
 
     public void FishGiantFish()
@@ -145,7 +142,6 @@ public class Book : MonoBehaviour
         i = 11;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
 
     }
 
