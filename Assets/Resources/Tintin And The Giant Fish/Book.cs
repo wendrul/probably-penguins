@@ -19,6 +19,7 @@ public class Book : MonoBehaviour
         {
             page[i] = transform.GetChild(i).gameObject;
         }
+        Cover();
         Pause();
     }
 
@@ -85,7 +86,6 @@ public class Book : MonoBehaviour
         i = 5;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
 
     }
 
@@ -96,9 +96,8 @@ public class Book : MonoBehaviour
         i = 6;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
+
     public void FishGiantFish()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -108,6 +107,7 @@ public class Book : MonoBehaviour
         PageWasPlayed = true;
 
     }
+
     public void LookGiantFish()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -115,9 +115,8 @@ public class Book : MonoBehaviour
         i = 8;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
+
     public void SpeedDating()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -126,6 +125,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
     }
+
     public void Cliff()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -134,6 +134,7 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
     }
+
     public void PingHell()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -141,9 +142,9 @@ public class Book : MonoBehaviour
         i = 11;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
 
     }
+
     public void TenOutTen()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -151,9 +152,8 @@ public class Book : MonoBehaviour
         i = 12;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
+
     public void FatherAgain()
     {
         AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
@@ -161,8 +161,6 @@ public class Book : MonoBehaviour
         i = 13;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
     public void LoveNeverComesAlone()
     {
@@ -171,8 +169,6 @@ public class Book : MonoBehaviour
         i = 14;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
-
     }
 
     public void OnGiantFish()
@@ -182,7 +178,20 @@ public class Book : MonoBehaviour
         i = 15;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
-        ShouldEnd = true;
+    }
+
+    public void TintinAndBinbin()
+    {
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        page[i].gameObject.SetActive(false);
+        i = 0;
+        page[i].gameObject.SetActive(true);
+        PageWasPlayed = true;
+    }
+
+   public void Cover()
+    {
+        i = 16;
     }
 
     public void Pause()
