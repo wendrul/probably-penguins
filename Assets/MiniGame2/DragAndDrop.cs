@@ -27,7 +27,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.TakePiecesfx, 0.15f);
+        AudioManager.Instance.PlaySFX(GameAssets.i.TakePiecesfx, 1f);
         //   Debug.Log("OnBeginDrag");
         Piece piece = eventData.pointerDrag.GetComponent<Piece>();
         if (eventData.pointerDrag != null)

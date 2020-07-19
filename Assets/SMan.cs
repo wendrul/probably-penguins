@@ -19,6 +19,11 @@ public class SMan : MonoBehaviour
     }
     void Update()
     {
+   //     if(firstTimePlayingMiniGame)
+     //   {
+       //     switcher.pause;
+            //setactiveTutoCanvasminigame
+        //}
        // ENABLE OF SETTINGS
         if (Input.GetKeyDown("escape"))
         {
@@ -33,7 +38,6 @@ public class SMan : MonoBehaviour
             if (settingsActive == true && ispressed == false)
             {
                 switcher.Resume();
-                Debug.Log("hir");
                 settings.SetActive(false);
                 settingsActive = false;
                     ispressed = true;

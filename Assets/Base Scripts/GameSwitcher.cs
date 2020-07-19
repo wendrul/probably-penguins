@@ -50,10 +50,7 @@ public class GameSwitcher : MonoBehaviour
         paused = false;
         currentMinigameDuration = Random.Range(roundTimeMin[CurrentMinigame], roundTimeMax[CurrentMinigame]);
         AudioManager.Instance.PlayMusic(GameAssets.i.donPinguiver);
-        AudioManager.Instance.SetMusicVolume(0.01f);
-        minigame2.Pause();
-
-       
+        minigame2.Pause();       
         //temporal:
         SwitchToMinigame();
             
@@ -126,6 +123,9 @@ public class GameSwitcher : MonoBehaviour
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
                 }
                 //
+                //set volume of the minigame's music
+                AudioManager.Instance.SetMusicVolume(0.6f);
+                //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.donPinguiver, firstGameTimestamp % 27);
                 minigame0.Resume();
                 cameraHolder.position = cameraPositions[0].position;
@@ -140,6 +140,8 @@ public class GameSwitcher : MonoBehaviour
                 {
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
                 }
+                //set volume of the minigame's music
+                AudioManager.Instance.SetMusicVolume(0.3f);
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.smerelo, secondGameTimestamp % 59);
                 minigame1.Resume();
                 cameraHolder.position = cameraPositions[1].position;
@@ -150,6 +152,9 @@ public class GameSwitcher : MonoBehaviour
                 PauseCurrentGame();
                 CurrentMinigame = 2;
                 //sfx transition
+                //set volume of the minigame's music
+                AudioManager.Instance.SetMusicVolume(0.9f);
+                //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.PuzzleMusic, secondGameTimestamp % 58);
 
                 if (lastMiniGame != 3)
@@ -166,6 +171,8 @@ public class GameSwitcher : MonoBehaviour
                 CurrentMinigame = 3;
                 //sfx transition
                     AudioManager.Instance.PlaySFX(GameAssets.i.TransitionSfx, 0.3f);
+                //set volume of the minigame's music
+                AudioManager.Instance.SetMusicVolume(1f);
                 //
                 AudioManager.Instance.PlayMusicAtTime(GameAssets.i.VisualNovelMusic, thirdGameTimestamp % 53);
                 minigame3.Resume();

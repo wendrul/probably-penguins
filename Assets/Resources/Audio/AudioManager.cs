@@ -41,20 +41,25 @@ public class AudioManager : MonoBehaviour
     {
        audioMixer = Resources.Load<AudioMixer>("Master");
 
+
+        audioMixGroup = audioMixer.FindMatchingGroups("Master");
+
         DontDestroyOnLoad(this.gameObject);
         musicSource = this.gameObject.AddComponent<AudioSource>();
         musicSource2 = this.gameObject.AddComponent<AudioSource>();
         sfxSource = this.gameObject.AddComponent<AudioSource>();
 
-        audioMixGroup = audioMixer.FindMatchingGroups("Master");
 
         musicSource.outputAudioMixerGroup = audioMixGroup[2];
         musicSource2.outputAudioMixerGroup = audioMixGroup[2];
         sfxSource.outputAudioMixerGroup = audioMixGroup[1];
 
+     
+
         //loop music
         musicSource.loop = true;
         musicSource2.loop = true;
+        
     }
 
     public void PlayMusic(AudioClip musicClip)

@@ -94,13 +94,13 @@ public class AsteroidLauncher : MonoBehaviour
         if (shieldDistance > shieldSize)
         {
             TakeDamage();
-            AudioManager.Instance.PlaySFX(GameAssets.i.shipHitAsteroid, 0.08f);
+            AudioManager.Instance.PlaySFX(GameAssets.i.shipHitAsteroid, 0.20f);
             DestroyAsteroidFail(asteroid, destructDelay);
         }
         else
         {
             TallyScore();
-            AudioManager.Instance.PlaySFX(GameAssets.i.shieldBlockAsteroid, 0.2f);
+            AudioManager.Instance.PlaySFX(GameAssets.i.shieldBlockAsteroid, 2f);
             DestroyAsteroidSuccess(asteroid, 0f);
         }
     }

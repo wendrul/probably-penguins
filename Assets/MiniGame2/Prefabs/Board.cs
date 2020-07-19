@@ -189,7 +189,7 @@ public class Board : MonoBehaviour
             tab = tab10;
         }
         everything.GetComponent<Transform>().position += new Vector3(0, 1000 * 0.8473335f, 0);
-        AudioManager.Instance.PlaySFX(GameAssets.i.LevelComplete, 0.15f);
+        AudioManager.Instance.PlaySFX(GameAssets.i.LevelComplete, 1f);
         return (true);
     }
 

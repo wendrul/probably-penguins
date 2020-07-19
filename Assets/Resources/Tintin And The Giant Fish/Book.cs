@@ -19,7 +19,7 @@ public class Book : MonoBehaviour
         {
             page[i] = transform.GetChild(i).gameObject;
         }
-        Cover();
+       //Cover();
         Pause();
     }
 
@@ -45,7 +45,7 @@ public class Book : MonoBehaviour
 
     public void BinbinFather()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 1;
         page[i].gameObject.SetActive(true);
@@ -54,7 +54,7 @@ public class Book : MonoBehaviour
 
     public void CryingInBed()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 2;
         page[i].gameObject.SetActive(true);
@@ -63,7 +63,7 @@ public class Book : MonoBehaviour
 
     public void Hospital()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 3;
         page[i].gameObject.SetActive(true);
@@ -72,7 +72,7 @@ public class Book : MonoBehaviour
 
     public void GranfatherFlashback()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 4;
         page[i].gameObject.SetActive(true);
@@ -81,7 +81,7 @@ public class Book : MonoBehaviour
 
     public void DreamingHappy()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 5;
         page[i].gameObject.SetActive(true);
@@ -91,7 +91,7 @@ public class Book : MonoBehaviour
 
     public void AloneInTheDark()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 6;
         page[i].gameObject.SetActive(true);
@@ -100,7 +100,7 @@ public class Book : MonoBehaviour
 
     public void FishGiantFish()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 7;
         page[i].gameObject.SetActive(true);
@@ -110,7 +110,7 @@ public class Book : MonoBehaviour
 
     public void LookGiantFish()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 8;
         page[i].gameObject.SetActive(true);
@@ -119,7 +119,7 @@ public class Book : MonoBehaviour
 
     public void SpeedDating()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 9;
         page[i].gameObject.SetActive(true);
@@ -128,7 +128,7 @@ public class Book : MonoBehaviour
 
     public void Cliff()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 10;
         page[i].gameObject.SetActive(true);
@@ -137,7 +137,7 @@ public class Book : MonoBehaviour
 
     public void PingHell()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 11;
         page[i].gameObject.SetActive(true);
@@ -147,7 +147,7 @@ public class Book : MonoBehaviour
 
     public void TenOutTen()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 12;
         page[i].gameObject.SetActive(true);
@@ -156,7 +156,7 @@ public class Book : MonoBehaviour
 
     public void FatherAgain()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 13;
         page[i].gameObject.SetActive(true);
@@ -164,7 +164,7 @@ public class Book : MonoBehaviour
     }
     public void LoveNeverComesAlone()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 14;
         page[i].gameObject.SetActive(true);
@@ -173,7 +173,7 @@ public class Book : MonoBehaviour
 
     public void OnGiantFish()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 15;
         page[i].gameObject.SetActive(true);
@@ -182,7 +182,7 @@ public class Book : MonoBehaviour
 
     public void TintinAndBinbin()
     {
-        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick);
+        AudioManager.Instance.PlaySFX(GameAssets.i.IranianClick, 1f);
         page[i].gameObject.SetActive(false);
         i = 0;
         page[i].gameObject.SetActive(true);
