@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class GameSwitcher : MonoBehaviour
@@ -41,6 +40,9 @@ public class GameSwitcher : MonoBehaviour
     private int seriousCounter = 0;
 
     public int seriousMax;
+
+    //to set active rebootbutton at the end of miniGame3
+    public GameObject rebootButton;
 
     void Start()
     {
@@ -85,12 +87,11 @@ public class GameSwitcher : MonoBehaviour
             {
                 Health.Instance.RemainingHealth -= Time.deltaTime * 2;
             }
-            if (CurrentMinigame == 3 && minigame3.ShouldEnd)
+            if (CurrentMinigame == 3 && Book.end == true)
             {
-                GameOver();
+                rebootButton.SetActive(true);
             }
         }
-
     }
 
     private void SwitchToMinigame ()

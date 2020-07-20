@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class Book : MonoBehaviour
 {
+    public static bool end = false;
     int i;
     private GameObject[] page;
     public bool PageWasPlayed { get; set; }
     public bool ShouldEnd { get; set; }
-
 
     private void Start()
     {
@@ -87,6 +87,8 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
 
+        end = true;
+
     }
 
     public void AloneInTheDark()
@@ -96,6 +98,8 @@ public class Book : MonoBehaviour
         i = 6;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
 
     public void FishGiantFish()
@@ -115,6 +119,8 @@ public class Book : MonoBehaviour
         i = 8;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
 
     public void SpeedDating()
@@ -143,6 +149,8 @@ public class Book : MonoBehaviour
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
 
+        end = true;
+
     }
 
     public void TenOutTen()
@@ -152,6 +160,8 @@ public class Book : MonoBehaviour
         i = 12;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
 
     public void FatherAgain()
@@ -161,6 +171,8 @@ public class Book : MonoBehaviour
         i = 13;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
     public void LoveNeverComesAlone()
     {
@@ -169,6 +181,8 @@ public class Book : MonoBehaviour
         i = 14;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
 
     public void OnGiantFish()
@@ -178,6 +192,8 @@ public class Book : MonoBehaviour
         i = 15;
         page[i].gameObject.SetActive(true);
         PageWasPlayed = true;
+
+        end = true;
     }
 
     public void TintinAndBinbin()
