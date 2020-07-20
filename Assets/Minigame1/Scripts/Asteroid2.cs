@@ -66,7 +66,7 @@ public class Asteroid2 : MonoBehaviour
             animator.SetBool("crash", true);
             rb2d.velocity = Vector2.zero;
             rb2d.angularVelocity = 0f;
-            hitInfo.SendMessage("DetractPoints", 15);
+            hitInfo.SendMessage("DetractPoints", 30);
             Destroy(gameObject, 0.5f);
             AudioManager.Instance.PlaySFX(GameAssets.i.SpaceCrashSFX, 0.30f);
         }
